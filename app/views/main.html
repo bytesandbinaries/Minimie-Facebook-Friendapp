@@ -1,0 +1,19 @@
+<div ng-controller="AppCtrl">
+    <div class="col-xs-12">
+        <div>
+            <img ng-src="{{user.prop_pict}}">
+        </div>
+        <a ng-click="logout()" ng-show="user.name!='login'" class="">Log out</a>
+        <div class="column small-12 medium-6" ng-show="user.name=='login'">
+            <button class="button large round expand mq-facebook" ng-click="FBlogin()">
+            <i class="fa fa-facebook"></i> Login</button>
+        </div>
+        <div ng-show="user.name!='login'" >
+            <button class="button large round expand mq-facebook" ng-click="FBgetfriends()">get friends</button>
+        </div>
+        <div>
+            <canvas id="myCanvas" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
+
+        </div>
+    </div>
+</div>
