@@ -3,13 +3,14 @@
   "version": "0.0.0",
   "dependencies": {
     "angular": "^1.3.0",
-    "bootstrap": "^3.2.0",
     "angular-animate": "^1.3.0",
     "angular-cookies": "^1.3.0",
     "angular-resource": "^1.3.0",
     "angular-route": "^1.3.0",
     "angular-sanitize": "^1.3.0",
-    "angular-touch": "^1.3.0"
+    "angular-touch": "^1.3.0",
+    "foundation-sites": "~6.1.0",
+    "motion-ui": "~1.1.0"
   },
   "devDependencies": {
     "angular-mocks": "^1.3.0"
@@ -17,11 +18,11 @@
   "appPath": "app",
   "moduleName": "friendappApp",
   "overrides": {
-    "bootstrap": {
+    "foundation-sites": {
       "main": [
-        "less/bootstrap.less",
-        "dist/css/bootstrap.css",
-        "dist/js/bootstrap.js"
+        "scss/foundation.scss",
+        "dist/js/foundation-apps.js",
+        "dist/js/foundation-apps-templates.js"
       ]
     }
   }
