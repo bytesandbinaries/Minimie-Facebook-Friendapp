@@ -18,11 +18,11 @@
   "appPath": "app",
   "moduleName": "friendappApp",
   "overrides": {
-    "foundation-sites": {
+    "bootstrap": {
       "main": [
-        "scss/foundation.scss",
-        "dist/js/foundation-apps.js",
-        "dist/js/foundation-apps-templates.js"
+        "less/bootstrap.less",
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
       ]
     }
   }
