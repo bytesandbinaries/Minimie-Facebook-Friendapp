@@ -19,7 +19,6 @@ angular
     'angucomplete',
     'mm.foundation'
   ])
-
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -48,24 +47,34 @@ angular
 	}])
 
 	.run(['$rootScope', '$window', 'AuthService', function($rootScope, $window, AuthService) {
-  		$rootScope.user = {};
-  		$window.fbAsyncInit = function() {
+		$rootScope.user = {};
+		$window.fbAsyncInit = function() {
     	// Executed when the SDK is loaded
     		FB.init({
+<<<<<<< HEAD
       			appId: '484528248385359',
       			channelUrl: 'template/channel.html',
       			status: true,
+=======
+    			appId: '484528248385359',
+    			channelUrl: 'template/channel.html',
+    			status: true,
+>>>>>>> master
 				cookie: true,
 				xfbml: true,
 				version: 'v2.4'
     		});
     	AuthService.watchLoginChange();
-  	};
+	};
    (function(){
 		var e = document.createElement('script'); e.async = true;
         e.src = document.location.protocol +
         '//connect.facebook.net/en_US/all.js';
         document.getElementById('fb-root').appendChild(e);
+<<<<<<< HEAD
  	}());
 
+=======
+	}());
+>>>>>>> master
 }]);
