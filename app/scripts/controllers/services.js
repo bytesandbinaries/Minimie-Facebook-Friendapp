@@ -6,7 +6,7 @@ appServices.service('levelData', function(){
   }
 })
 appServices.service('userData', ['$rootScope','$location', function($rootScope,$location){
-  var savedData =  {name:'login', id:'1',  totalscore:0, email:'', currentlevel:1, lastlevelscore:0, line1:'0', line2:'0', line3:'0', status:'', facebook:'', prop_pict:'images/knewbie.png'}
+  var savedData =  {name:'login', id:'1',  totalscore:0, email:'', currentlevel:1, friendId:'', allfriends:[], status:'', facebook:'', prop_pict:'images/knewbie.png'}
 
   return{
      data:function() {   return savedData; }
@@ -86,7 +86,8 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 	}
 	var friendsList=function(flist){
 		$http({url:'server/get_friends.php?', method:'GET', params:flist}).
-              success(function(responseData, status, headers, config) {user.friends=responseData; console.log(user.friends)},
+              success(function(responseData, status, headers, config) {
+                  user.friends=responseData; console.log(user.friends)},
               function(err) {}
           );
 	}
@@ -125,34 +126,35 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 	register:function(regprams){
 		 register(regprams)
 	},watchLoginChange: function() {
-  		FB.Event.subscribe('auth.authResponseChange', function(res) {
+		FB.Event.subscribe('auth.authResponseChange', function(res) {
     		if (res.status === 'connected') {
-      			FB.api('/me?fields=name,email, friends', function(res) {
+    			FB.api('/me?fields=name,email, friends', function(res) {
 					user.name=res.name;
                     user.id=res.id;
-					console.log(res);
+					//console.log(res);
 					user.status='FBPlayer';
 					user.prop_pict='http://graph.facebook.com/'+ res.id+'/picture';
 					$reg={fname:res.name.split(' ')[0], lname:res.name.split(' ')[1], email:res.email, phone:'', password:'fblogin', facebook:res.id}
 					var email =(res.email)? res.email:res.id;
 					// login(email, 'fblogin').then(  function(authenticated) {},
-					//   function(err) { console.log();  register($reg).then(  function(authenticated){}, function(err) {} );
+					//   function(err) {  register($reg).then(  function(authenticated){}, function(err) {} );
 					//   }
 					// );
-					if(res.friends.data.length>0){
-						friends = [];
-						for($j=0; $j<res.friends.data.length; $j++)	{
-							friends.push(res.friends.data[$j]);
-						}
-						friendsList(friends).then( function(authenticated){
-							console.log(authenticated)
-						}, function(err){console.log('Error getting friends, try again')})
-					}
-					$location.path('/exam');
-					$rootScope.$apply(function() {
-					$rootScope.user = res;
-
-					});
+                    $rootScope.$broadcast('loadFriends');
+					// if(res.friends.data.length>0){
+					// 	friends = [];
+					// 	for($j=0; $j<res.friends.data.length; $j++)	{
+					// 		friends.push(res.friends.data[$j]);
+					// 	}
+					// 	friendsList(friends).then( function(authenticated){
+					// 		console.log(authenticated)
+					// 	}, function(err){console.log('Error getting friends, try again')})
+					// }
+					// $location.path('/exam');
+					// $rootScope.$apply(function() {
+					// $rootScope.user = res;
+                    //
+					// });
 				});
 			}
 			else {}
