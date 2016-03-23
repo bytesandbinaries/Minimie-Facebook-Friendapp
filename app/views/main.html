@@ -22,6 +22,16 @@
             <div class="editable" id="message"> I want to edit this text easily.</div>
 
             <div class=""><button ng-click="draw()">Draw</button></div>
+            <div>
+                <angucomplete class='floater' localdata="allfriends"
+                      id="friendlist"
+                      titlefield="name"
+                      searchfields="name"
+                      selectedobject="id"
+                      imagefield="picture.data.url"
+                      minlenght='3'
+                      placeholder="Type Friend's name" />
+              </div>
         </div>
         <div ng-show="showcanvass">
             <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
