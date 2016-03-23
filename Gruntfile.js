@@ -39,12 +39,15 @@ module.exports = function (grunt) {
 
     sass: {
         options: {
-            loadPath: ['bower_components/foundation-sites/scss']
+            loadPath: ['bower_components/foundation-sites/scss', 'bower_components/motion-ui'],
+//             loadPath: ['bower_components/foundation-sites/scss']
+            compass:true
         },
         dist: {
             options: {
                 sourcemap: 'none',
-                style: 'nested'
+                style: 'nested',
+//                compass:true
             },
             files: [{
                 expand: true,
@@ -56,43 +59,43 @@ module.exports = function (grunt) {
         }
     },
 
-//    // Concatenate Configuration
-//
-//    concat: {
-//        options: {
-//            separator: ';'
-//        },
-//        script: {
+    // Concatenate Configuration
+
+    concat: {
+        options: {
+            separator: ';'
+        },
+        script: {
+            src: [
+                'bower_components/foundation-sites/js/foundation/foundation.js',
+                'bower_components/foundation-sites/js/foundation/foundation.alert.js',
+                'bower_components/foundation-sites/js/foundation/foundation.abide.js',
+                'bower_components/foundation-sites/js/foundation/foundation.joyride.js',
+                // ...more foundation JS you might want to add
+                '<%= yeoman.app %>/develop/js/script.js'
+            ],
+            dest: '<%= yeoman.app %>/scripts/script.js'
+        },
+//        modernizr: {
 //            src: [
-//                'bower_components/foundation-sites/js/foundation/foundation.js',
-//                'bower_components/foundation-sites/js/foundation/foundation.alert.js',
-//                'bower_components/foundation-sites/js/foundation/foundation.abide.js',
-//                'bower_components/foundation-sites/js/foundation/foundation.joyride.js',
-//                // ...more foundation JS you might want to add
-//                '<%= yeoman.app %>/develop/js/script.js'
+//                'bower_components/modernizr/modernizr.js',
+//                'develop/js/custom.modernizr.js'
 //            ],
-//            dest: '<%= yeoman.app %>/scripts/script.js'
-//        },
-////        modernizr: {
-////            src: [
-////                'bower_components/modernizr/modernizr.js',
-////                'develop/js/custom.modernizr.js'
-////            ],
-////            dest: 'dist/assets/js/modernizr.js'
-////        }
-//    },
-//
-//      // Uglify Configuration
-//
-//    uglify: {
-//        dist: {
-//            files: {
-////                'dist/assets/js/jquery.min.js': ['bower_components/jquery/dist/jquery.js'],
-////                'dist/assets/js/modernizr.min.js': ['dist/assets/js/modernizr.js'],
-//                'dist/assets/js/script.min.js': ['<%= yeoman.app %>/develop/js/script.js']
-//            }
+//            dest: 'dist/assets/js/modernizr.js'
 //        }
-//    },
+    },
+
+      // Uglify Configuration
+
+    uglify: {
+        dist: {
+            files: {
+                'dist/assets/js/jquery.min.js': ['bower_components/jquery/dist/jquery.js'],
+//                'dist/assets/js/modernizr.min.js': ['dist/assets/js/modernizr.js'],
+                'dist/assets/js/script.min.js': ['<%= yeoman.app %>/develop/js/script.js']
+            }
+        }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -506,7 +509,7 @@ module.exports = function (grunt) {
   //-----------------------------------------------------------------------------------------------------------------
     
   grunt.registerTask('buildCss', ['sass']);
-//  grunt.registerTask('buildJs',  ['concat', 'uglify']);
+  grunt.registerTask('buildJs',  ['concat', 'uglify']);
 
   grunt.registerTask('serve', 'Compile then start a connect web server', function (target) {
     if (target === 'dist') {
@@ -518,7 +521,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'buildCss',
-//      'buildJs',
+      'buildJs',
       'autoprefixer:server',
       'connect:livereload',
       'watch'
