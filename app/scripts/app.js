@@ -16,6 +16,7 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
+    'angucomplete',
     'appServices'
   ])
   .config(function ($routeProvider) {

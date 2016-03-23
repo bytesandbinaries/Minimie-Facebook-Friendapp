@@ -16,6 +16,7 @@ angular
     'ngSanitize',
     'ngTouch',
     'appServices',
+    'angucomplete',
     'mm.foundation'
   ])
 
@@ -39,18 +40,18 @@ angular
       });
   })
 	.run(['$rootScope',  '$location', 'userData', function(root, $location, userData) {
-		root.$on('$routeChangeSuccess', function(scope, currView, prevView) { 
+		root.$on('$routeChangeSuccess', function(scope, currView, prevView) {
 			var user= userData.data()
 			try{if (!currView.access.isFree && (user.status=="")) { $location.path('/');  }}
 			catch(e){}
 		});
 	}])
-	
+
 	.run(['$rootScope', '$window', 'AuthService', function($rootScope, $window, AuthService) {
   		$rootScope.user = {};
   		$window.fbAsyncInit = function() {
     	// Executed when the SDK is loaded
-    		FB.init({ 
+    		FB.init({
       			appId: '484528248385359',
       			channelUrl: 'template/channel.html',
       			status: true,

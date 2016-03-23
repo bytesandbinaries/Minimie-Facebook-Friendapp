@@ -8,21 +8,34 @@
             <button class="button large round expand mq-facebook" ng-click="FBlogin()">
             <i class="fa fa-facebook"></i> Login</button>
         </div>
-        <div ng-show="user.name!='login'" >
+        <!-- <div ng-show="user.name!='login'" >
             <button class="button large round expand mq-facebook" ng-click="FBgetfriends()">get friends</button>
-        </div>
+        </div> -->
         <div class="canv_div">
             <div class="image_holder">
                 <div class="img_nav" id="image_up" ng-click="select_pic(0)">Up</div>
                 <div class="image_slider">
-                    <img id="card_img" ng-src="../images/{{mainurl}}" width="250px" height="250px">
+                    <img id="card_img" ng-src="../app/images/{{mainurl}}" width="250px" height="250px">
                 </div>
                 <div class="img_nav" id="image_down" ng-click="select_pic(1)">Down</div>
             </div>
             <div class="editable" id="message"> I want to edit this text easily.</div>
 
             <div class=""><button ng-click="draw()">Draw</button></div>
+            <div>
+                <angucomplete class='floater' localdata="allfriends"
+                      id="friendlist"
+                      titlefield="name"
+                      searchfields="name"
+                      selectedobject="id"
+                      imagefield="picture.data.url"
+                      minlenght='3'
+                      placeholder="Type Friend's name" />
+              </div>
         </div>
-        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
+        <div ng-show="showcanvass">
+            <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+            <div class="button link" ng-click="saveandupload()">Save Image</div>
+        </div>
     </div>
 </div>

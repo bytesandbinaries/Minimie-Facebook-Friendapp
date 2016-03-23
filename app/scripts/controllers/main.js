@@ -8,8 +8,9 @@
  * Controller of the friendappApp
  */
 var main=angular.module('friendappApp');
-main.controller('AppCtrl',['$scope','userData', '$location', function($scope,userData, $location){
+main.controller('AppCtrl',['$scope','userData', '$location', '$rootScope', function($scope,userData, $location, $rootScope){
    $scope.user=userData.data();
+   $scope.user.allfriends=[];
    $scope.logout = function() {
    FB.logout(function(response) {
       $scope.user.status="";
@@ -27,26 +28,40 @@ main.controller('AppCtrl',['$scope','userData', '$location', function($scope,use
       $scope.$apply();
    });
  }
-
  $scope.FBlogin = function() {
   FB.login(function(response) { }, {scope: 'public_profile,email,user_friends'});
  }
+ $scope.$on('loadFriends', function(event, data) {
+        $scope.FBgetfriends();
+    })
+ function getfriends(response){
+     for( var friend in response.data){
+       $scope.user.allfriends.push(response.data[friend]);
+      // $('#friends ul').append('<li><a href="#">' + friends.name + '</a></li>');
+    }
+     console.log($scope.user.allfriends);
+     if( response.paging.next){
+         console.log('fetching next page...');
+         $.getJSON(response.paging.next, function(response){
+             getfriends(response);
+         });
+
+     }
+     else{
+        $rootScope.$broadcast('allfriendsloaded');
+     }
+ }
  $scope.FBgetfriends = function() {
-  FB.api(
+    FB.api(
       "/"+$scope.user.id+"/taggable_friends",
       function(response) {
           if (response && !response.error) {
-              console.log(response);
+            getfriends(response);
           }
       })
  }
  }])
 main.controller('MainCtrl', ['$scope', function ($scope) {
-    this.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-    ];
     $scope.picture_url=[{url:'1.png'},{url:'2.png'},{url:'3.png'},{url:'4.png'}];
     $scope.mainurl=$scope.picture_url[0].url;
     $scope.imgpos=0;
@@ -56,12 +71,11 @@ main.controller('MainCtrl', ['$scope', function ($scope) {
         //placeholder: 'Your Arti
     });
     $scope.select_pic=function(dir){
-        console.log($scope.imgpos);
+    //    console.log($scope.imgpos);
         (dir==0)?$scope.imgpos++:$scope.imgpos--;
         ($scope.imgpos<0)?$scope.imgpos=0:($scope.imgpos>($scope.picture_url.length-1))?$scope.imgpos=$scope.picture_url.length-1:$scope.imgpos=$scope.imgpos;
         console.log($scope.imgpos);
         $scope.mainurl=$scope.picture_url[$scope.imgpos].url;
-
     }
     $scope.message="Editable text, click to add or edit the content";
 
