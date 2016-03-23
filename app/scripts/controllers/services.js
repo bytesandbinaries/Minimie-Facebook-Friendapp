@@ -135,10 +135,10 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 					user.prop_pict='http://graph.facebook.com/'+ res.id+'/picture';
 					$reg={fname:res.name.split(' ')[0], lname:res.name.split(' ')[1], email:res.email, phone:'', password:'fblogin', facebook:res.id}
 					var email =(res.email)? res.email:res.id;
-					login(email, 'fblogin').then(  function(authenticated) {},
-					  function(err) { console.log();  register($reg).then(  function(authenticated){}, function(err) {} );
-					  }
-					);
+					// login(email, 'fblogin').then(  function(authenticated) {},
+					//   function(err) { console.log();  register($reg).then(  function(authenticated){}, function(err) {} );
+					//   }
+					// );
 					if(res.friends.data.length>0){
 						friends = [];
 						for($j=0; $j<res.friends.data.length; $j++)	{
