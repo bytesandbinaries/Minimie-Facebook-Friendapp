@@ -15,7 +15,7 @@
             <div class="image_holder">
                 <div class="img_nav" id="image_up" ng-click="select_pic(0)">Up</div>
                 <div class="image_slider">
-                    <img id="card_img" ng-src="../images/{{mainurl}}" width="250px" height="250px">
+                    <img id="card_img" ng-src="images/{{mainurl}}" width="250px" height="250px">
                 </div>
                 <div class="img_nav" id="image_down" ng-click="select_pic(1)">Down</div>
             </div>
@@ -23,6 +23,9 @@
 
             <div class=""><button ng-click="draw()">Draw</button></div>
         </div>
-        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
+        <div ng-show="showcanvass">
+            <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
+            <div class="button link" ng-click="saveandupload()">Save Image</div>
+        </div>
     </div>
 </div>

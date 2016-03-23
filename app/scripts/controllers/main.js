@@ -29,7 +29,7 @@ main.controller('AppCtrl',['$scope','userData', '$location', function($scope,use
  }
 
  $scope.FBlogin = function() {
-  FB.login(function(response) { }, {scope: 'public_profile,email,user_friends'});
+  FB.login(function(response) { }, {scope: 'public_profile,email,user_friends, publish_actions'});
  }
  $scope.FBgetfriends = function() {
   FB.api(
@@ -41,12 +41,9 @@ main.controller('AppCtrl',['$scope','userData', '$location', function($scope,use
       })
  }
  }])
-main.controller('MainCtrl', ['$scope', function ($scope) {
-    this.awesomeThings = [
-    'HTML5 Boilerplate',
-    'AngularJS',
-    'Karma'
-    ];
+main.controller('MainCtrl', ['$scope','$http', function ($scope, $http) {
+
+    $scope.showcanvass=false
     $scope.picture_url=[{url:'1.png'},{url:'2.png'},{url:'3.png'},{url:'4.png'}];
     $scope.mainurl=$scope.picture_url[0].url;
     $scope.imgpos=0;
@@ -66,11 +63,17 @@ main.controller('MainCtrl', ['$scope', function ($scope) {
     $scope.message="Editable text, click to add or edit the content";
 
     $scope.draw=function(){//this draws all the element on the canvas;
+        $scope.showcanvass=true;
         var c = document.getElementById("card");
         var ctx = c.getContext("2d");
         ctx.clearRect(0, 0, c.width, c.height);//clears the content of the canvas before drawing
         ctx.font = "30px Arial";
         var t=  document.getElementById('message').textContent;
+        ctx.beginPath();
+        ctx.rect(0, 0, 600, 450);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.fillStyle = "black";
         ctx.fillText('Minimie Friend\'s Card',40,50);//fills the canvas with the default minimie message.
         var maxWidth = 200;      var lineHeight = 25; //sets maximum width and line for the user message for warping the text-align
         ctx.font= "20px Calibri";
@@ -79,6 +82,7 @@ main.controller('MainCtrl', ['$scope', function ($scope) {
         //ctx.fillText(t,310,100);
         var i= document.getElementById('card_img');
         ctx.drawImage(i,40,80,250, 250);
+
     }
     $scope.wrapText=function(context, text, x, y, maxWidth, lineHeight) {
         var words = text.split(' ');
@@ -97,5 +101,56 @@ main.controller('MainCtrl', ['$scope', function ($scope) {
           }
         }
         context.fillText(line, x, y);
-      }
+    }
+    $scope.saveandupload=function(){
+        console.log('sjpgsdf');
+        var c = document.getElementById("card");
+        var img = c.toDataURL("image/jpeg");
+        var form_data=parsetoformdata(img);
+        $http.post('server/upload.php',  form_data, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}                })
+         .then(function(response){
+
+             var url='http://bytesandbinaries.com/app/images/'+response.data;
+             console.log(url);
+             //request accessToken
+             FB.getLoginStatus(function(response) {
+              if (response.status === 'connected') {
+                var accessToken = response.authResponse.accessToken;
+              }
+            } );
+             FB.api('/me/photos', 'post', {
+                message:'Checking tags',
+                url:url
+                }, function(response){
+                    if (!response || response.error) {
+                       console.log(response);
+                    }else{
+                      //tags friend
+                      var postId = response.id;
+                      FB.api(postId+'/tags?to='+'AaKQ8p44dwwoUs9nlfU4KkXanW6MaQkusikjgyY3sSph03vSihqnwYVPbyN3YCiduESnzkPBqAUcmWzf7qz8GX7kNbJrCKCFD8yBzB7yDafvVw', 'post', function(response){
+                         if (!response || response.error) {
+                            console.log(response);
+                         }
+                      });
+                    }
+            });
+
+          },
+         function(err){  console.log('Images Couldn\'t be added.'+err); });
+    }
+    var parsetoformdata= function(data){
+        var form_data = new FormData();
+        if(typeof(data)==='object'){
+            for ( var key in data ) {
+                form_data.append(key, data[key]);
+            }
+        }
+        else if(data!=''){
+            form_data.append('data', data);
+        }
+        else{form_data.append('data', '');}
+        return form_data;
+    }
 }]);
