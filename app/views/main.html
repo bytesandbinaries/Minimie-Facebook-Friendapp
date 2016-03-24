@@ -5,8 +5,8 @@
             </div>
             <div class="fa-login-area">
                <div class="fa-logged-in" ng-show="user.name!='login'">
-                   <img ng-src="{{user.prop_pict}}" class="fa-profile-pic" >
                    <a ng-click="logout()" class="fa-logout-btn">Log out</a>
+                   <img ng-src="{{user.prop_pict}}" class="fa-profile-pic" >
                </div>
                <div class="fa-logged-out" ng-show="user.name=='login'">
                    <button class="fa-login-btn" ng-click="FBlogin()">
@@ -20,22 +20,22 @@
         
         <div class="fa-card-opt-area">
             <div class="fa-card">
-                <img id="card_img" ng-src="../images/{{mainurl}}" width="450px" height="450px">
+                <img id="card_img" ng-src="../images/{{mainurl}}">
             </div>
             <div class="fa-card-nav-area">
-                <div class="fa-card-nav-prev">
+                <a class="fa-card-nav-prev">
                     <img src="../images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
-                </div>
+                </a>
                 <div class="fa-card-nav-count"></div>
-                <div class="fa-card-nav-next">
+                <a class="fa-card-nav-next">
                     <img src="../images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
-                </div>
+                </a>
             </div>
         </div>
         
         <div class="fa-action-bar">
             <div class="fa-edit-btn-area">
-                
+                <button class="fa-edit-btn" type="button">Edit Message</button>
             </div>
             <div class="fa-like-btn-area"></div>
             <div class="fa-post-btn-area"></div>
@@ -98,6 +98,10 @@
             <div class="button link" ng-click="saveandupload()">Save Image</div>
         </div>
 
-        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
+        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas> 
+        
+<!--   
+     
+-->
 
 </div>

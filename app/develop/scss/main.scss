@@ -70,49 +70,63 @@
     @include grid-row();
     background-color: #fff;
     min-height: 50px;
-    padding:30px;
+    padding-top: 10px;
+    padding-bottom:10px;
 }
 
 .fa-logo-area{
     @include grid-column(6);
+    padding-top: 5px;
 }
 
 .fa-logo{
-    height: 70px;
+    height: 60px;
 }
 
 .fa-login-area{
     @include grid-column(6);
+    padding-top: 15px;
+}
+
+.login-btn{
+    float:right;
+    height:100%;
 }
 
 .fa-login-btn{
-//    @include button(false,$primary-color,darken($primary-color,10),#fff, solid);
+    @include button(false,$primary-color,darken($primary-color,5),#fff, solid);
+    @extend .login-btn;
 }
 
-.fa-logout-btn{}
+.fa-logout-btn{
+    @include button(false,$warning-color,darken($warning-color,5),#fff, solid);
+    @extend .login-btn;
+}
 
 .fa-profile-pic{
-    height: 70px;
+    height: 40px;
     float: right;
+    border-radius:50%;
+    margin-right:20px;
 }
 
-.fa-login-btn{
-    float:right;
-}
 
 //---------------------------------------------------Card Area
 
 .fa-card-opt-area{
     min-height: 450px;
-    padding: 50px;
+    padding: 100px 100px 20px;
 }
 
 .fa-card{
     width: 100%;
+    border: 15px solid #fff;
+    background-color: #fff;
 }
 
 .fa-card-nav-area{
     @include grid-row();
+    margin-top:20px;
 }
 
 .fa-card-nav-prev{
@@ -132,37 +146,54 @@
 .fa-action-bar{
     @include grid-row;
     background-color: #fff;
-    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .fa-edit-btn-area{
-    @include grid-column(4);
+    @include grid-column(5);
+}
+
+.fa-edit-btn{
+    @include button(true,$primary-color,darken($primary-color,5),#fff, hollow);
 }
 
 .fa-like-btn-area{
-    @include grid-column(2);
+    @include grid-column(1);
 }
 
 .fa-post-btn-area{
-    @include grid-column(2);
+    @include grid-column(1);
 }
 
 .fa-share-btn-area{
-    @include grid-column(4);
+    @include grid-column(5);
 }
 
 .fa-share-btn{
+    @include button(true,$primary-color,darken($primary-color,5),#fff, solid);
+
 }
 
 //---------------------------------------------------Credits Area
 
 .fa-credit-bar{
     @include grid-column-row();
+    @include menu-simple;
+    color: #eee;
     background-color:#e3e3e3;
+    border-top:1px solid darken(#e3e3e3,20);
     ul{
         list-style-type:none;
+        margin: 0;
+        padding-bottom: 8px;
+        padding-top: 8px;
         li{
             display: inline-block;
+            a{
+                color: darken(#e3e3e3,30);
+                font-size: 0.9em;
+            }
         }
     }
 }
