@@ -70,7 +70,7 @@ module.exports = function (grunt) {
                 'bower_components/foundation-sites/js/foundation/foundation.js',
                 'bower_components/foundation-sites/js/foundation/foundation.alert.js',
                 'bower_components/foundation-sites/js/foundation/foundation.abide.js',
-                'bower_components/foundation-sites/js/foundation/foundation.joyride.js',
+                'bower_components/foundation-sites/js/foundation/foundation.toggler.js',
                 // ...more foundation JS you might want to add
                 '<%= yeoman.app %>/develop/js/script.js'
             ],

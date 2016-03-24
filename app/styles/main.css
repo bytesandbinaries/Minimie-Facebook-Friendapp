@@ -3632,6 +3632,42 @@ body.is-reveal-open {
   .fa-card-nav-next:last-child:not(:first-child) {
     float: right; }
 
+.fa-edit-panel {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 300px;
+  background-color: #ebebeb; }
+  .fa-edit-panel::before, .fa-edit-panel::after {
+    content: ' ';
+    display: table; }
+  .fa-edit-panel::after {
+    clear: both; }
+
+.fa-edit-options {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  width: 50%;
+  float: left; }
+  @media screen and (min-width: 40em) {
+    .fa-edit-options {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  .fa-edit-options:last-child:not(:first-child) {
+    float: right; }
+
+.fa-canvass-draw {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  width: 50%;
+  float: left; }
+  @media screen and (min-width: 40em) {
+    .fa-canvass-draw {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem; } }
+  .fa-canvass-draw:last-child:not(:first-child) {
+    float: right; }
+
 .fa-action-bar {
   max-width: 75rem;
   margin-left: auto;
@@ -3754,7 +3790,7 @@ body.is-reveal-open {
   width: 100%;
   float: left;
   color: #eee;
-  background-color: #e3e3e3;
+  background-color: #fff;
   border-top: 1px solid #b0b0b0; }
   .fa-credit-bar::before, .fa-credit-bar::after {
     content: ' ';

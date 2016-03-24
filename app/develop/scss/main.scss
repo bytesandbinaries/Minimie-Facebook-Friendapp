@@ -141,6 +141,22 @@
     @include grid-column(3);
 }
 
+//---------------------------------------------------Edit Panel
+
+.fa-edit-panel{
+    @include grid-row();
+    min-height: 300px;
+    background-color: lighten(#e3e3e3,3);
+}
+
+.fa-edit-options{
+    @include grid-column(6);
+}
+
+.fa-canvass-draw{
+    @include grid-column(6);
+}
+
 //---------------------------------------------------Actions Area
 
 .fa-action-bar{
@@ -181,7 +197,7 @@
     @include grid-column-row();
     @include menu-simple;
     color: #eee;
-    background-color:#e3e3e3;
+    background-color:#fff;
     border-top:1px solid darken(#e3e3e3,20);
     ul{
         list-style-type:none;
