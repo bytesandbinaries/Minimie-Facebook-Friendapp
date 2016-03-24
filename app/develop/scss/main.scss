@@ -85,6 +85,12 @@
     @include grid-column(6);
 }
 
+.fa-login-btn{
+//    @include button(false,$primary-color,darken($primary-color,10),#fff, solid);
+}
+
+.fa-logout-btn{}
+
 .fa-profile-pic{
     height: 70px;
     float: right;
