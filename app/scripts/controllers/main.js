@@ -61,14 +61,10 @@ main.controller('AppCtrl',['$scope','userData', '$location', '$rootScope', funct
       })
  }
  }])
-<<<<<<< HEAD
-main.controller('MainCtrl', ['$scope', function ($scope) {
-=======
 main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $http, userData) {
 
     $scope.user=userData.data();
     $scope.showcanvass=false
->>>>>>> master
     $scope.picture_url=[{url:'1.png'},{url:'2.png'},{url:'3.png'},{url:'4.png'}];
     $scope.mainurl=$scope.picture_url[0].url;
     $scope.imgpos=0;
@@ -128,7 +124,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         context.fillText(line, x, y);
     }
     $scope.saveandupload=function(){
-        console.log('sjpgsdf');
+        var t=  document.getElementById('message').textContent;
         var c = document.getElementById("card");
         var img = c.toDataURL("image/jpeg");
         var form_data=parsetoformdata(img);
@@ -146,7 +142,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
               }
             } );
              FB.api('/me/photos', 'post', {
-                message:'Checking tags',
+                message:t,
                 url:url
                 }, function(response){
                     if (!response || response.error) {
