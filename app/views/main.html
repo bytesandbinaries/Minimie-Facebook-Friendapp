@@ -1,13 +1,68 @@
 <div ng-controller="AppCtrl">
-    <div class="col-xs-12">
-        <div>
-            <img ng-src="{{user.prop_pict}}">
+        <div class="fa-header">
+            <div class="fa-logo-area">
+                <img src="../images/fa-main-logo.png" class="fa-logo">
+            </div>
+            <div class="fa-login-area">
+               <div class="fa-logged-in" ng-show="user.name!='login'">
+                   <img ng-src="{{user.prop_pict}}" class="fa-profile-pic" >
+                   <a ng-click="logout()" class="fa-logout-btn">Log out</a>
+               </div>
+               <div class="fa-logged-out" ng-show="user.name=='login'">
+                   <button class="fa-login-btn" ng-click="FBlogin()">
+                       <i class="fa fa-facebook"></i> Login
+                   </button>
+               </div>
+                
+            </div>
+    
         </div>
+        
+        <div class="fa-card-opt-area">
+            <div class="fa-card">
+                <img id="card_img" ng-src="../images/{{mainurl}}" width="450px" height="450px">
+            </div>
+            <div class="fa-card-nav-area">
+                <div class="fa-card-nav-prev">
+                    <img src="../images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
+                </div>
+                <div class="fa-card-nav-count"></div>
+                <div class="fa-card-nav-next">
+                    <img src="../images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
+                </div>
+            </div>
+        </div>
+        
+        <div class="fa-action-bar">
+            <div class="fa-edit-btn-area">
+                
+            </div>
+            <div class="fa-like-btn-area"></div>
+            <div class="fa-post-btn-area"></div>
+            <div class="fa-share-btn-area">
+                <button class="fa-share-btn" ng-show="user.name!='login'" ng-click="FBgetfriends()">
+                    Share with friends
+                </button>
+                <a class="fa-share-btn" ng-show="user.name=='login'" ng-click="FBlogin()">Login to share</a>
+            </div>
+        </div>
+        
+        <div class="fa-credit-bar">
+            <ul>
+                <li><a>Ts & cs</a></li>
+                <li><a>Privacy Policy</a></li>
+                <li><a>About Minimie</a></li>
+            </ul>
+        </div>
+
+
         <a ng-click="logout()" ng-show="user.name!='login'" class="">Log out</a>
+        
         <div class="column small-12 medium-6" ng-show="user.name=='login'">
-            <button class="button large round expand mq-facebook" ng-click="FBlogin()">
+            <button class="" ng-click="FBlogin()">
             <i class="fa fa-facebook"></i> Login</button>
         </div>
+        
         <div ng-show="user.name!='login'" >
             <button class="button large round expand mq-facebook" ng-click="FBgetfriends()">get friends</button>
         </div>
@@ -24,5 +79,5 @@
             <div class=""><button ng-click="draw()">Draw</button></div>
         </div>
         <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
-    </div>
+
 </div>
