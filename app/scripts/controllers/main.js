@@ -74,7 +74,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         //placeholder: 'Your Arti
     });
     $scope.select_pic=function(dir){
-        console.log($scope.imgpos);
+    //    console.log($scope.imgpos);
         (dir==0)?$scope.imgpos++:$scope.imgpos--;
         ($scope.imgpos<0)?$scope.imgpos=0:($scope.imgpos>($scope.picture_url.length-1))?$scope.imgpos=$scope.picture_url.length-1:$scope.imgpos=$scope.imgpos;
         console.log($scope.imgpos);
@@ -124,7 +124,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         context.fillText(line, x, y);
     }
     $scope.saveandupload=function(){
-        console.log('sjpgsdf');
+        var t=  document.getElementById('message').textContent;
         var c = document.getElementById("card");
         var img = c.toDataURL("image/jpeg");
         var form_data=parsetoformdata(img);
@@ -142,7 +142,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
               }
             } );
              FB.api('/me/photos', 'post', {
-                message:'Checking tags',
+                message:t,
                 url:url
                 }, function(response){
                     if (!response || response.error) {
