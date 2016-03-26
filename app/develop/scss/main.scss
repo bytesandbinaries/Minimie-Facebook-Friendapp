@@ -64,6 +64,22 @@
     background-image: url(../../images/fa-bg-pattern.png);
 }
 
+.fa-icon{
+    width: 50%;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+//    float: left;
+    top:-0.1em;
+    background-image: url(../../images/fa-like-icon.png);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+}
+
+.fa-btn-icon{
+    position: relative;
+}
+
 //---------------------------------------------------Header Area
 
 .fa-header{
@@ -222,6 +238,15 @@ label{
 
 .fa-edit-btn{
     @include button(true,$primary-color,darken($primary-color,5),#fff, hollow);
+    @extend .fa-btn-icon;
+    background-image: url(../../images/fa-edit-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 26px;
+    background-position: 15px 50%;
+    :hover{
+        background-image: url(../../images/fa-edit-icon-hover.png);
+    }
 }
 
 .fa-like-btn-area{
@@ -238,7 +263,12 @@ label{
 
 .fa-share-btn{
     @include button(true,$primary-color,darken($primary-color,5),#fff, solid);
-
+    @extend .fa-btn-icon;
+    background-image: url(../../images/fa-friends-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 26px;
+    background-position: 15px 50%;
 }
 
 //---------------------------------------------------Credits Area
@@ -257,7 +287,7 @@ label{
         li{
             display: inline-block;
             a{
-                color: darken(#e3e3e3,30);
+                color: darken($primary-color,5);
                 font-size: 0.9em;
             }
         }

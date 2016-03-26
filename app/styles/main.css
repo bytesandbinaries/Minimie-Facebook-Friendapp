@@ -3481,6 +3481,19 @@ body.is-reveal-open {
   background: #fb5000;
   background-image: url(../../images/fa-bg-pattern.png); }
 
+.fa-icon {
+  width: 50%;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -0.1em;
+  background-image: url(../../images/fa-like-icon.png);
+  background-repeat: no-repeat;
+  background-origin: border-box; }
+
+.fa-btn-icon, .fa-edit-btn, .fa-share-btn {
+  position: relative; }
+
 .fa-header {
   max-width: 75rem;
   margin-left: auto;
@@ -3775,7 +3788,11 @@ label {
   display: block;
   width: 100%;
   margin-left: 0;
-  margin-right: 0; }
+  margin-right: 0;
+  background-image: url(../../images/fa-edit-icon.png);
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: 15px 50%; }
   [data-whatinput='mouse'] .fa-edit-btn {
     outline: 0; }
   .fa-edit-btn, .fa-edit-btn:hover, .fa-edit-btn:focus {
@@ -3783,6 +3800,8 @@ label {
   .fa-edit-btn:hover, .fa-edit-btn:focus {
     border-color: #6f050c;
     color: #6f050c; }
+  .fa-edit-btn :hover {
+    background-image: url(../../images/fa-edit-icon-hover.png); }
 
 .fa-like-btn-area {
   padding-left: 0.625rem;
@@ -3838,7 +3857,11 @@ label {
   display: block;
   width: 100%;
   margin-left: 0;
-  margin-right: 0; }
+  margin-right: 0;
+  background-image: url(../../images/fa-friends-icon.png);
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: 15px 50%; }
   [data-whatinput='mouse'] .fa-share-btn {
     outline: 0; }
   .fa-share-btn:hover, .fa-share-btn:focus {
@@ -3883,5 +3906,5 @@ label {
     .fa-credit-bar ul li {
       display: inline-block; }
       .fa-credit-bar ul li a {
-        color: #979797;
+        color: #c60915;
         font-size: 0.9em; }

@@ -73,13 +73,16 @@
 
         <div class="fa-action-bar">
             <div class="fa-edit-btn-area">
-                <a ng-model="toggler" ng-click="toggler=!toggler" class="fa-edit-btn"><i class="-fa-icon fa-edit-icon"></i>Add a Message</a>
+                <a ng-model="toggler" ng-click="toggler=!toggler" class="fa-edit-btn">
+<!--                    <span class="fa-icon fa-edit-icon"></span>-->
+                    Add a Message
+                </a>
             </div>
             <div class="fa-like-btn-area"></div>
             <div class="fa-post-btn-area"></div>
             <div class="fa-share-btn-area">
                 <button class="fa-share-btn" ng-show="user.name!='login'" ng-click="saveandupload()">
-                   <i class="fa-icon fa-share-icon"></i>
+<!--                   <span class="fa-icon fa-share-icon"></span>-->
                     Share with friend
                 </button>
                 <a class="fa-share-btn" ng-show="user.name=='login'" ng-click="FBlogin()">Login to share</a>
