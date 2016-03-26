@@ -1,7 +1,7 @@
 <div ng-controller="AppCtrl">
         <div class="fa-header">
             <div class="fa-logo-area">
-                <img src="../images/fa-main-logo.png" class="fa-logo">
+                <img src="images/fa-main-logo.png" class="fa-logo">
             </div>
             <div class="fa-login-area">
                <div class="fa-logged-in" ng-show="user.name!='login'">
@@ -13,26 +13,26 @@
                        <i class="fa fa-facebook"></i> Login
                    </button>
                </div>
-                
+
             </div>
-    
+
         </div>
-        
+
         <div class="fa-card-opt-area">
             <div class="fa-card">
-                <img id="card_img" ng-src="../images/{{mainurl}}">
+                <img id="card_img" ng-src="images/{{mainurl}}">
             </div>
             <div class="fa-card-nav-area">
                 <a class="fa-card-nav-prev">
-                    <img src="../images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
+                    <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
                 </a>
                 <div class="fa-card-nav-count"></div>
                 <a class="fa-card-nav-next">
-                    <img src="../images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
+                    <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
                 </a>
             </div>
         </div>
-        
+
         <div class="fa-edit-panel" id="fa-edit-panel" ng-show="toggler">
            <div class="fa-edit-options">
               <label class="">Click on the message below to edit it</label>
@@ -42,7 +42,7 @@
                    <p>My BBF Forever:</p>
                    <p>Olakuunmi.</p>
                </div>
-               
+
               <div class="fa-fb-friend-list">
                   <label>Who would you like to share this card with?</label>
                 <angucomplete class='fa-floater' localdata="allfriends"
@@ -57,9 +57,10 @@
                
                <div>
                    <button class="fa-draw-btn" ng-click="draw()">Create Card</button>
+
                </div>
            </div>
-           
+
            <div class="fa-cavass-draw">
                <div  class="fa-drawn-card" ng-show="showcanvass">
                     <canvas id="card" width="540" height="400" style="border:1px solid #d3d3d3;text-align:left;text-indent:0;">
@@ -67,9 +68,9 @@
                     </canvas>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <div class="fa-action-bar">
             <div class="fa-edit-btn-area">
                 <a ng-model="toggler" ng-click="toggler=!toggler" class="fa-edit-btn"><i class="-fa-icon fa-edit-icon"></i>Add a Message</a>
@@ -84,7 +85,7 @@
                 <a class="fa-share-btn" ng-show="user.name=='login'" ng-click="FBlogin()">Login to share</a>
             </div>
         </div>
-        
+
         <div class="fa-credit-bar">
             <ul>
                 <li><a>Ts & cs</a></li>
@@ -94,47 +95,47 @@
         </div>
 
 
-       
-        
 
 
-        
-    
-        
-        
-<!--  
-   
+
+
+
+
+
+
+<!--
+
     <div class="image_holder">
     <div class="img_nav" id="image_up" ng-click="select_pic(0)">Up</div>
 
     <div class="img_nav" id="image_down" ng-click="select_pic(1)">Down</div>
-            </div> 
+            </div>
     <div ng-show="user.name!='login'" >
 
             <button class="button large round expand mq-facebook" ng-click="FBgetfriends()">get friends</button>
     </div>
-        
+
     <div class="image_slider">
 
         <img id="card_img" ng-src="images/{{mainurl}}" width="250px" height="250px">
 
     </div>
-    
+
     <div ng-show="showcanvass">
             <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.</canvas>
             <div ng-click="saveandupload()">Save Image</div>
         </div>
 
-        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas> 
-        
+        <canvas id="card" width="600" height="400" style="border:1px solid #d3d3d3;">Your browser does not support the HTML5 canvas tag.          </canvas>
+
         <div class="fa-editable-msg" id="message"> I want to edit this text easily.</div>
-        
-        
+
+
         <div class="canv_div">
 
-            
 
-            
+
+
             <div>
                 <angucomplete class='floater' localdata="allfriends"
                       id="friendlist"
