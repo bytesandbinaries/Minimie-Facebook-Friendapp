@@ -51,9 +51,15 @@ angular
 		$window.fbAsyncInit = function() {
     	// Executed when the SDK is loaded
     		FB.init({
+<<<<<<< HEAD
+      			appId: '484528248385359',
+      			channelUrl: 'template/channel.html',
+      			status: true,
+=======
     			appId: '484528248385359',
     			channelUrl: 'template/channel.html',
     			status: true,
+>>>>>>> master
 				cookie: true,
 				xfbml: true,
 				version: 'v2.4'
@@ -65,5 +71,10 @@ angular
         e.src = document.location.protocol +
         '//connect.facebook.net/en_US/all.js';
         document.getElementById('fb-root').appendChild(e);
+<<<<<<< HEAD
+ 	}());
+
+=======
 	}());
+>>>>>>> master
 }]);
