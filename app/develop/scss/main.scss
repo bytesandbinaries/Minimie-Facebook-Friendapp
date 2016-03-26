@@ -1,14 +1,14 @@
+// Foundation for Apps
+// by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
+
 @charset 'utf-8';
 @import url(http://fonts.googleapis.com/css?family=Armata|Michroma);
 
 @import 'foundation';
 @import 'settings';
 @import 'motion-ui';
-
-// Foundation for Apps
-// by ZURB
-// foundation.zurb.com
-// Licensed under MIT Open Source
 
 $foundation-version: '1.2.0';
 
@@ -66,245 +66,293 @@ $foundation-version: '1.2.0';
 //__________________________________________________________
 
 
-//.fa-app-wrapper{
-//  width: 100%;
-//    height: 100%;
-//}
-//
-//.fa-app-view{
-//    max-width:600px;
+.fa-app-wrapper{
+  width: 100%;
+    height: 100%;
+}
+
+.fa-app-view{
+    @include grid-block;
+    @include grid-orient(vertical);
+    max-width:600px;
 //    min-height: 450px;
-//    margin: 0 auto;
-//    background: $secondary-color;
-//    background-image: url(../../images/fa-bg-pattern.png);
-//}
-//
-//.fa-icon{
-//    width: 50%;
-//    height: 40px;
-//    display: inline-block;
-//    position: absolute;
-////    float: left;
-//    top:-0.1em;
-//    background-image: url(../../images/fa-like-icon.png);
-//    background-repeat: no-repeat;
-//    background-origin: border-box;
-//}
-//
-//.fa-btn-icon{
-//    position: relative;
-//}
-//
+    margin: 0 auto;
+    background: $secondary-color;
+    background-image: url(../../images/fa-bg-pattern.png);
+}
+
+.fa-icon{
+    width: 50%;
+    height: 40px;
+    display: inline-block;
+    position: absolute;
+//    float: left;
+    top:-0.1em;
+    background-image: url(../../images/fa-like-icon.png);
+    background-repeat: no-repeat;
+    background-origin: border-box;
+}
+
+.fa-btn-icon{
+    position: relative;
+}
+
 ////---------------------------------------------------Header Area
-//
-//.fa-header{
-//    @include grid-row();
-//    background-color: #fff;
-//    min-height: 50px;
-//    padding-top: 10px;
-//    padding-bottom:10px;
-//}
-//
-//.fa-logo-area{
-//    @include grid-column(6);
-//    padding-top: 5px;
-//}
-//
-//.fa-logo{
-//    height: 60px;
-//}
-//
-//.fa-login-area{
-//    @include grid-column(6);
-//    padding-top: 15px;
-//}
-//
-//.login-btn{
-//    float:right;
-//    height:100%;
-//    padding-left: 40px;
-//    padding-right: 40px;
-//}
-//
-//.fa-login-btn{
-//    @include button(false,$primary-color,darken($primary-color,5),#fff, solid);
-//    @extend .login-btn;
-//}
-//
-//.fa-logout-btn{
-//    @include button(false,$primary-color,darken($primary-color,5),#fff, hollow);
-//    @extend .login-btn;
-//}
-//
-//.fa-profile-pic{
-//    height: 40px;
-//    float: right;
-//    border-radius:50%;
-//    margin-right:20px;
-//}
-//
-//
-////---------------------------------------------------Card Area
-//
-//.fa-card-opt-area{
-//    min-height: 450px;
-//    padding: 100px 100px 20px;
-//}
-//
-//.fa-card{
-//    width: 100%;
-//    border: 15px solid #fff;
-//    background-color: #fff;
-//    border-radius: $global-radius;
-//}
-//
-//.fa-card-nav-area{
-//    @include grid-row();
-//    margin-top:20px;
-//}
-//
-//.fa-card-nav-prev{
-//    @include grid-column(3);
-//}
-//
-//.fa-card-nav-count{
-//    @include grid-column(6);
-//}
-//
-//.fa-card-nav-next{
-//    @include grid-column(3);
-//}
-//
-////---------------------------------------------------Edit Panel
-//
-//
-//label{
-//        color: darken($success-color,12);
-//        text-align: center;
-//        font-weight: bold;
-//}
-//
-//.fa-edit-panel{
-//    @include grid-row();
-//    min-height: 300px;
-//    background-color: lighten(#e3e3e3,3);
-//    padding-bottom: 20px;
-//    padding-top: 30px;
-//}
-//
-//.fa-edit-options{
-//    @include grid-column(8);
-//    @include grid-column-position(center);
-//}
-//
-//.fa-editable-msg{
-//    background-color: lighten(#e3e3e3,7);
-//    padding: 15px;
-//    border: 1px solid darken(#e3e3e3,10);
-//    margin-bottom: 30px;
-//    border-radius: $global-radius;
-//    p{
-//        text-indent: 0;
-//        text-align: center;
-//    }
-//}
-//
-//
-//.fa-floater{
-//
-//    .angucomplete-dropdown{
-//        background-color: lighten(#e3e3e3,5);
-//        font-size: 0.8em;
-//        font-color: $success-color;
-//        padding:15px;
-//        border: 1px solid darken(#e3e3e3, 10);
-//        margin-bottom: 30px;
-//    }
-//    
-//}
-//
-//.fa-draw-btn{
-//    @include button(true, $success-color, darken($success-color, 5), #fff, solid);
-//}
-//
-//.fa-canvass-draw{
-//    @include grid-column(12);
-//    padding: auto 30px;
-//}
-//
-//.fa-drawn-card{
-//    margin-right: 30px;
-//    margin-left: 30px;
-//    margin-top: 30px;
-//}
-//
-////---------------------------------------------------Actions bar
-//
-//.fa-action-bar{
-//    @include grid-row;
-//    background-color: #fff;
-//    padding-top: 15px;
+
+.fa-header{
+    @include grid-block;
+    background-color: #fff;
+    min-height: 50px;
+    padding-top: 10px;
+    padding-bottom:10px;
+}
+
+.fa-logo-area{
+    @include grid-block(3);
+    @include grid-align(left);
+    padding-top: 5px;
+}
+
+.fa-logo{
+    height: 60px;
+}
+
+.fa-login-area{
+    @include grid-block(9);
+    @include grid-align(right);
+    padding-top: 15px;
+}
+
+.login-btn{
+    float:right;
+    height:100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.fa-login-btn{
+    @extend %button;
+    @include button-style($primary-color,darken($primary-color,5),#fff, solid);
+    @extend .login-btn;
+}
+
+.fa-logout-btn{
+    @extend %button;
+    @include button-style(darken($primary-color,5),$primary-color,#fff, hollow);
+    @extend .login-btn;
+}
+
+.fa-profile-pic{
+    height: 40px;
+    float: right;
+    border-radius:50%;
+    margin-right:20px;
+}
+
+
+//---------------------------------------------------Card Area
+
+.fa-card-opt-area{
+    min-height: 450px;
+    padding: 100px 100px 20px;
+}
+
+.fa-card{
+    width: 100%;
+    border: 15px solid #fff;
+    background-color: #fff;
+    border-radius: $global-radius;
+}
+
+.fa-card-nav-area{
+    @include grid-block;
+    margin-top:20px;
+}
+
+.fa-card-nav-prev{
+    @include grid-block(3);
+}
+
+.fa-card-nav-count{
+    @include grid-block(6);
+}
+
+.fa-card-nav-next{
+    @include grid-block(3);
+}
+
+//---------------------------------------------------Edit Panel
+
+
+label{
+        color: darken($success-color,12);
+        text-align: center;
+        font-weight: bold;
+}
+
+.fa-edit-panel{
+    @include grid-block;
+    @include grid-align(center);
+    @include grid-orient(vertical);
+    min-height: 300px;
+    background-color: lighten(#e3e3e3,3);
+    padding-bottom: 20px;
+    padding-top: 30px;
+}
+
+.fa-edit-options{
+    @include grid-container(
+        $width:90%,
+        $align:center
+        );
+//    @include grid-orient(vertical);
+//    @include grid-align(center);
+}
+
+.fa-editable-msg{
+//    @include grid-content(
+//        $size:10
+//        );
+    background-color: lighten(#e3e3e3,7);
+    padding: 15px;
+    border: 1px solid darken(#e3e3e3,10);
+    margin-bottom: 30px;
+    border-radius: $global-radius;
+    p{
+        text-indent: 0;
+        text-align: center;
+    }
+}
+
+
+.fa-floater{
+
+    .angucomplete-dropdown{
+        background-color: lighten(#e3e3e3,5);
+        font-size: 0.8em;
+        font-color: $success-color;
+        padding:15px;
+        border: 1px solid darken(#e3e3e3, 10);
+        margin-bottom: 30px;
+    }
+    
+}
+
+.fa-draw-btn{
+    @extend %button;
+    @include button-style($success-color, darken($success-color, 5), #fff, solid);
+    @include button-size(
+        $expand:true
+        );
+}
+
+.fa-canvass-draw{
+    @include grid-block;
+    padding: auto 30px;
+}
+
+.fa-drawn-card{
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+//---------------------------------------------------Actions bar
+
+.fa-action-bar{
+    @include grid-block;
+    background-color: #fff;
+    padding-top: 15px;
 //    padding-bottom: 15px;
-//}
-//
-//.fa-edit-btn-area{
-//    @include grid-column(5);
-//}
-//
-//.fa-edit-btn{
-//    @include button(true,$primary-color,darken($primary-color,5),#fff, hollow);
-//    @extend .fa-btn-icon;
-//    background-image: url(../../images/fa-edit-icon.png);
-//    background-repeat: no-repeat;
-////    background-origin: border-box;
-//    background-size: 26px;
-//    background-position: 15px 50%;
-//    :hover{
-//        background-image: url(../../images/fa-edit-icon-hover.png);
-//    }
-//}
-//
-//.fa-like-btn-area{
-//    @include grid-column(1);
-//}
-//
-//.fa-post-btn-area{
-//    @include grid-column(1);
-//}
-//
-//.fa-share-btn-area{
-//    @include grid-column(5);
-//}
-//
-//.fa-share-btn{
-//    @include button(true,$primary-color,darken($primary-color,5),#fff, solid);
-//    @extend .fa-btn-icon;
-//    background-image: url(../../images/fa-friends-icon.png);
-//    background-repeat: no-repeat;
-////    background-origin: border-box;
-//    background-size: 26px;
-//    background-position: 15px 50%;
-//}
-//
-////---------------------------------------------------Credits Area
-//
-//.fa-credit-bar{
-//    @include grid-column-row();
+}
+
+.fa-edit-btn-area{
+    @include grid-block(5);
+}
+
+.fa-edit-btn{
+    @extend %button;
+    @include button-style(
+        $background:$primary-color,
+        $background-hover:darken($primary-color,5),
+        $color:#fff, 
+        $style:hollow
+        );
+    @include button-size(
+        $size:medium,
+        $expand:true
+    );
+    @extend .fa-btn-icon;
+    background-image: url(../../images/fa-edit-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 26px;
+    background-position: 15px 50%;
+}
+
+.fa-edit-btn:hover{
+    background-image: url(../../images/fa-edit-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 30px;
+    background-position: 15px 50%;
+}
+
+.fa-like-btn-area{
+    @include grid-block(1);
+}
+
+.fa-post-btn-area{
+    @include grid-block(1);
+}
+
+.fa-share-btn-area{
+    @include grid-block(5);
+}
+
+.fa-share-btn{
+    @extend %button;
+    @include button-style($primary-color,darken($primary-color,5),#fff, solid);
+    @include button-size(
+        $size:medium,
+        $expand:true
+    );
+    @extend .fa-btn-icon;
+    background-image: url(../../images/fa-friends-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 26px;
+    background-position: 15px 50%;
+}
+
+.fa-share-btn:hover{
+    background-image: url(../../images/fa-friends-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 30px;
+    background-position: 15px 50%;
+}
+
+//---------------------------------------------------Credits Area
+
+.fa-credit-bar{
+    @include grid-block();
 //    @include menu-simple;
-//    color: #eee;
-//    background-color:#fff;
-//    border-top:1px solid darken($primary-color,2);
-//    ul{
-//        list-style-type:none;
-//        margin: 0;
-//        padding-bottom: 8px;
-//        padding-top: 8px;
-//        li{
-//            display: inline-block;
-//            a{
-//                color: darken($primary-color,5);
-//                font-size: 0.9em;
-//            }
-//        }
-//    }
-//}
+    color: #eee;
+    background-color:#fff;
+    border-top:1px solid darken($primary-color,2);
+    ul{
+        list-style-type:none;
+        margin: 0;
+        padding-bottom: 8px;
+        padding-top: 8px;
+        li{
+            display: inline-block;
+            a{
+                color: darken($primary-color,5);
+                font-size: 0.9em;
+                margin-right:15px;
+            }
+        }
+    }
+}

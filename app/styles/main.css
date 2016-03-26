@@ -901,7 +901,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         margin-left: 0.8rem;
         float: none; }
 
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
+.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .fa-login-btn, .fa-logout-btn, .fa-draw-btn, .fa-edit-btn, .fa-share-btn {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -6223,7 +6223,7 @@ meta.foundation-mq {
   $dropdown-class - class to use for list items that contain a dropdown.
   $switch-class - class to use for switches inside list items.
 */
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
+.button, .button-group > li > a, .button-group > li > label, .button-group > li > button, .fa-login-btn, .fa-logout-btn, .fa-draw-btn, .fa-edit-btn, .fa-share-btn {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -6265,7 +6265,7 @@ meta.foundation-mq {
     margin-top: -2px; }
 
 .button-group.segmented, .button-group.segmented.secondary, .button-group.segmented.success, .button-group.segmented.warning, .button-group.segmented.alert {
-  border: 1px solid #00558b;
+  border: 1px solid #de0a18;
   transition-property: background color; }
   .button-group.segmented > li > input[type="radio"] {
     position: absolute;
@@ -7163,3 +7163,515 @@ meta.foundation-mq {
 
 .long-delay {
   animation-delay: 700ms !important; }
+
+.fa-app-wrapper {
+  width: 100%;
+  height: 100%; }
+
+.fa-app-view {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fb5000;
+  background-image: url(../../images/fa-bg-pattern.png); }
+
+.fa-icon {
+  width: 50%;
+  height: 40px;
+  display: inline-block;
+  position: absolute;
+  top: -0.1em;
+  background-image: url(../../images/fa-like-icon.png);
+  background-repeat: no-repeat;
+  background-origin: border-box; }
+
+.fa-btn-icon, .fa-edit-btn, .fa-share-btn {
+  position: relative; }
+
+.fa-header {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  background-color: #fff;
+  min-height: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px; }
+
+.fa-logo-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 25%;
+  max-width: 25%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  justify-content: flex-start;
+  padding-top: 5px; }
+
+.fa-logo {
+  height: 60px; }
+
+.fa-login-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 75%;
+  max-width: 75%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  justify-content: flex-end;
+  padding-top: 15px; }
+
+.login-btn, .fa-login-btn, .fa-logout-btn {
+  float: right;
+  height: 100%;
+  padding-left: 40px;
+  padding-right: 40px; }
+
+.fa-login-btn {
+  background: #de0a18;
+  color: #fff; }
+  .fa-login-btn:hover, .fa-login-btn:focus {
+    background: #c60915;
+    color: #fff; }
+  .fa-login-btn .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .fa-login-btn .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
+
+.fa-logout-btn {
+  border: 1px solid #c60915;
+  background: transparent;
+  color: #c60915; }
+  .fa-logout-btn:hover, .fa-logout-btn:focus {
+    border-color: #f52533;
+    background: transparent;
+    color: #f52533; }
+  .fa-logout-btn .iconic * {
+    fill: #c60915;
+    stroke: #c60915; }
+    .fa-logout-btn .iconic *.iconic-property-accent {
+      fill: #c60915;
+      stroke: #c60915; }
+  .fa-logout-btn:hover .iconic * {
+    fill: #f52533;
+    stroke: #f52533; }
+    .fa-logout-btn:hover .iconic *.iconic-property-accent {
+      fill: #f52533;
+      stroke: #f52533; }
+
+.fa-profile-pic {
+  height: 40px;
+  float: right;
+  border-radius: 50%;
+  margin-right: 20px; }
+
+.fa-card-opt-area {
+  min-height: 450px;
+  padding: 100px 100px 20px; }
+
+.fa-card {
+  width: 100%;
+  border: 15px solid #fff;
+  background-color: #fff;
+  border-radius: 4px; }
+
+.fa-card-nav-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  margin-top: 20px; }
+
+.fa-card-nav-prev {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 25%;
+  max-width: 25%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-card-nav-count {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 50%;
+  max-width: 50%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-card-nav-next {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 25%;
+  max-width: 25%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+label {
+  color: #32804f;
+  text-align: center;
+  font-weight: bold; }
+
+.fa-edit-panel {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: stretch;
+  min-height: 300px;
+  background-color: #ebebeb;
+  padding-bottom: 20px;
+  padding-top: 30px; }
+
+.fa-edit-options {
+  max-width: 90%;
+  margin: 0 auto; }
+
+.fa-editable-msg {
+  background-color: whitesmoke;
+  padding: 15px;
+  border: 1px solid #cacaca;
+  margin-bottom: 30px;
+  border-radius: 4px; }
+  .fa-editable-msg p {
+    text-indent: 0;
+    text-align: center; }
+
+.fa-floater .angucomplete-dropdown {
+  background-color: #f0f0f0;
+  font-size: 0.8em;
+  font-color: #43AC6A;
+  padding: 15px;
+  border: 1px solid #cacaca;
+  margin-bottom: 30px; }
+
+.fa-draw-btn {
+  background: #43AC6A;
+  color: #fff;
+  font-size: 0.9rem;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0; }
+  .fa-draw-btn:hover, .fa-draw-btn:focus {
+    background: #3c9a5f;
+    color: #fff; }
+  .fa-draw-btn .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .fa-draw-btn .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
+  .fa-draw-btn .iconic {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    margin-top: -2px; }
+
+.fa-canvass-draw {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  padding: auto 30px; }
+
+.fa-drawn-card {
+  margin-right: 30px;
+  margin-left: 30px;
+  margin-top: 30px; }
+
+.fa-action-bar {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  background-color: #fff;
+  padding-top: 15px; }
+
+.fa-edit-btn-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-edit-btn {
+  border: 1px solid #de0a18;
+  background: transparent;
+  color: #de0a18;
+  font-size: 0.9rem;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  background-image: url(../../images/fa-edit-icon.png);
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: 15px 50%; }
+  .fa-edit-btn:hover, .fa-edit-btn:focus {
+    border-color: #f63744;
+    background: transparent;
+    color: #f63744; }
+  .fa-edit-btn .iconic * {
+    fill: #de0a18;
+    stroke: #de0a18; }
+    .fa-edit-btn .iconic *.iconic-property-accent {
+      fill: #de0a18;
+      stroke: #de0a18; }
+  .fa-edit-btn:hover .iconic * {
+    fill: #f63744;
+    stroke: #f63744; }
+    .fa-edit-btn:hover .iconic *.iconic-property-accent {
+      fill: #f63744;
+      stroke: #f63744; }
+  .fa-edit-btn .iconic {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    margin-top: -2px; }
+
+.fa-edit-btn:hover {
+  background-image: url(../../images/fa-edit-icon.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: 15px 50%; }
+
+.fa-like-btn-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-post-btn-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-share-btn-area {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; }
+
+.fa-share-btn {
+  background: #de0a18;
+  color: #fff;
+  font-size: 0.9rem;
+  display: block;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  background-image: url(../../images/fa-friends-icon.png);
+  background-repeat: no-repeat;
+  background-size: 26px;
+  background-position: 15px 50%; }
+  .fa-share-btn:hover, .fa-share-btn:focus {
+    background: #c60915;
+    color: #fff; }
+  .fa-share-btn .iconic * {
+    fill: #fff;
+    stroke: #fff; }
+    .fa-share-btn .iconic *.iconic-property-accent {
+      fill: #fff;
+      stroke: #fff; }
+  .fa-share-btn .iconic {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    margin-right: 0.25em;
+    margin-top: -2px; }
+
+.fa-share-btn:hover {
+  background-image: url(../../images/fa-friends-icon.png);
+  background-repeat: no-repeat;
+  background-size: 30px;
+  background-position: 15px 50%; }
+
+.fa-credit-bar {
+  display: flex;
+  height: auto;
+  position: relative;
+  overflow: hidden;
+  backface-visibility: hidden;
+  flex: 1 1 auto;
+  flex-flow: row wrap;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+  order: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  color: #eee;
+  background-color: #fff;
+  border-top: 1px solid #d40a17; }
+  .fa-credit-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding-bottom: 8px;
+    padding-top: 8px; }
+    .fa-credit-bar ul li {
+      display: inline-block; }
+      .fa-credit-bar ul li a {
+        color: #c60915;
+        font-size: 0.9em;
+        margin-right: 15px; }
