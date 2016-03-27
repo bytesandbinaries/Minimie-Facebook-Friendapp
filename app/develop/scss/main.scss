@@ -4,7 +4,7 @@
 // Licensed under MIT Open Source
 
 @charset 'utf-8';
-@import url(http://fonts.googleapis.com/css?family=Armata|Michroma);
+@import url(http://fonts.googleapis.com/css?Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
 
 @import 'foundation';
 @import 'settings';
@@ -108,18 +108,22 @@ $foundation-version: '1.2.0';
 }
 
 .fa-logo-area{
-    @include grid-block(3);
-    @include grid-align(left);
+    @include grid-content(
+        $size:3
+    );
+//    @include grid-align(left);
     padding-top: 5px;
 }
 
 .fa-logo{
-    height: 60px;
+//    height: 60px;
 }
 
 .fa-login-area{
-    @include grid-block(9);
-    @include grid-align(right);
+    @include grid-content(
+        $size:9
+    );
+//    @include grid-align(right);
     padding-top: 15px;
 }
 
@@ -154,7 +158,7 @@ $foundation-version: '1.2.0';
 
 .fa-card-opt-area{
     min-height: 450px;
-    padding: 100px 100px 20px;
+    padding: 100px 100px 30px;
 }
 
 .fa-card{
@@ -166,26 +170,38 @@ $foundation-version: '1.2.0';
 
 .fa-card-nav-area{
     @include grid-block;
-    margin-top:20px;
+    margin-top:30px;
 }
 
 .fa-card-nav-prev{
-    @include grid-block(3);
+    @include grid-content(
+        $size:3
+    );
+    img{
+        height:40px;
+    }
 }
 
-.fa-card-nav-count{
-    @include grid-block(6);
-}
+//.fa-card-nav-count{
+//    @include grid-block(6);
+//}
 
 .fa-card-nav-next{
-    @include grid-block(3);
+    @include grid-content(
+        $size:3,
+        $offset:6
+    );
+    img{
+        height:40px;
+        float: right;
+    }
 }
 
 //---------------------------------------------------Edit Panel
 
 
 label{
-        color: darken($success-color,12);
+        color: darken(#e3e3e3,20);
         text-align: center;
         font-weight: bold;
 }
@@ -195,14 +211,14 @@ label{
     @include grid-align(center);
     @include grid-orient(vertical);
     min-height: 300px;
-    background-color: lighten(#e3e3e3,3);
+    background-color: lighten(#e3e3e3,9);
     padding-bottom: 20px;
     padding-top: 30px;
 }
 
 .fa-edit-options{
     @include grid-container(
-        $width:90%,
+        $width:60%,
         $align:center
         );
 //    @include grid-orient(vertical);
@@ -210,18 +226,34 @@ label{
 }
 
 .fa-editable-msg{
-//    @include grid-content(
-//        $size:10
-//        );
-    background-color: lighten(#e3e3e3,7);
-    padding: 15px;
+    @include grid-content(
+        $size:expand
+        );
+
+    background: lighten(#e3e3e3,7);
+    background: repeating-linear-gradient(#fff, #fff 29px, #d9eaf3 29px, #d9eaf3 30px, #fff 30px  );
+    
+    padding: 6.5px 30px 19px 30px ;
     border: 1px solid darken(#e3e3e3,10);
     margin-bottom: 30px;
     border-radius: $global-radius;
     p{
+        font-family: 'Delius Swash Caps', cursive;
         text-indent: 0;
         text-align: center;
+        line-height: 1.6;
+        padding-bottom: 0.65rem;
+        font-size: 1.2rem;
+        color: darken($info-color, 30);
     }
+}
+
+.fa-editable-msg:focus{
+    background: repeating-linear-gradient(#fff, #fff 29px, #fa7d85 29px, #fa7d85 30px, #fff 30px  );
+    p{
+        color:darken(#e3e3e3,40);
+    }
+
 }
 
 
@@ -267,7 +299,9 @@ label{
 }
 
 .fa-edit-btn-area{
-    @include grid-block(5);
+    @include grid-content(
+        $size:5
+    );
 }
 
 .fa-edit-btn{
@@ -299,15 +333,21 @@ label{
 }
 
 .fa-like-btn-area{
-    @include grid-block(1);
+    @include grid-content(
+        $size:1
+    );
 }
 
 .fa-post-btn-area{
-    @include grid-block(1);
+    @include grid-content(
+        $size:1
+    );
 }
 
 .fa-share-btn-area{
-    @include grid-block(5);
+    @include grid-content(
+        $size:5
+    );
 }
 
 .fa-share-btn{
@@ -342,6 +382,9 @@ label{
     background-color:#fff;
     border-top:1px solid darken($primary-color,2);
     ul{
+        @include grid-content(
+            $size:shrink
+            );
         list-style-type:none;
         margin: 0;
         padding-bottom: 8px;
@@ -353,6 +396,9 @@ label{
                 font-size: 0.9em;
                 margin-right:15px;
             }
+        }
+        li a:hover{
+            color: lighten($primary-color,5);
         }
     }
 }

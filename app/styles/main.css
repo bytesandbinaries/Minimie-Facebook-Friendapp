@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Armata|Michroma);
+@import url(http://fonts.googleapis.com/css?Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -6236,7 +6236,7 @@ meta.foundation-mq {
   padding: 0.85em 1em;
   margin: 0 1rem 1rem 0;
   font-size: 0.9rem;
-  border-radius: 0; }
+  border-radius: 4px; }
 
 .button-group {
   margin: 0;
@@ -7224,44 +7224,23 @@ meta.foundation-mq {
   padding-bottom: 10px; }
 
 .fa-logo-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
+  display: block;
+  padding: 0 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   flex: 0 0 25%;
   max-width: 25%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
-  justify-content: flex-start;
   padding-top: 5px; }
 
-.fa-logo {
-  height: 60px; }
-
 .fa-login-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 75%;
-  max-width: 75%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  justify-content: flex-end;
+  flex: 0 0 75%;
+  max-width: 75%;
   padding-top: 15px; }
 
 .login-btn, .fa-login-btn, .fa-logout-btn {
@@ -7312,7 +7291,7 @@ meta.foundation-mq {
 
 .fa-card-opt-area {
   min-height: 450px;
-  padding: 100px 100px 20px; }
+  padding: 100px 100px 30px; }
 
 .fa-card {
   width: 100%;
@@ -7335,61 +7314,34 @@ meta.foundation-mq {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  margin-top: 20px; }
+  margin-top: 30px; }
 
 .fa-card-nav-prev {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
+  display: block;
+  padding: 0 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
   flex: 0 0 25%;
-  max-width: 25%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
-
-.fa-card-nav-count {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 50%;
-  max-width: 50%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  max-width: 25%; }
+  .fa-card-nav-prev img {
+    height: 40px; }
 
 .fa-card-nav-next {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 25%;
-  max-width: 25%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 0 0 25%;
+  max-width: 25%;
+  margin-left: 50%; }
+  .fa-card-nav-next img {
+    height: 40px;
+    float: right; }
 
 label {
-  color: #32804f;
+  color: #b0b0b0;
   text-align: center;
   font-weight: bold; }
 
@@ -7412,34 +7364,51 @@ label {
   flex-flow: column nowrap;
   align-items: stretch;
   min-height: 300px;
-  background-color: #ebebeb;
+  background-color: #fafafa;
   padding-bottom: 20px;
   padding-top: 30px; }
 
 .fa-edit-options {
-  max-width: 90%;
+  max-width: 60%;
   margin: 0 auto; }
 
 .fa-editable-msg {
-  background-color: whitesmoke;
-  padding: 15px;
+  display: block;
+  padding: 0 1rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 1 1 auto;
+  background: whitesmoke;
+  background: repeating-linear-gradient(#fff, #fff 29px, #d9eaf3 29px, #d9eaf3 30px, #fff 30px);
+  padding: 6.5px 30px 19px 30px;
   border: 1px solid #cacaca;
   margin-bottom: 30px;
   border-radius: 4px; }
   .fa-editable-msg p {
+    font-family: 'Delius Swash Caps', cursive;
     text-indent: 0;
-    text-align: center; }
+    text-align: center;
+    line-height: 1.6;
+    padding-bottom: 0.65rem;
+    font-size: 1.2rem;
+    color: #2f96c0; }
+
+.fa-editable-msg:focus {
+  background: repeating-linear-gradient(#fff, #fff 29px, #fa7d85 29px, #fa7d85 30px, #fff 30px); }
+  .fa-editable-msg:focus p {
+    color: #7d7d7d; }
 
 .fa-floater .angucomplete-dropdown {
   background-color: #f0f0f0;
   font-size: 0.8em;
-  font-color: #43AC6A;
+  font-color: #53c644;
   padding: 15px;
   border: 1px solid #cacaca;
   margin-bottom: 30px; }
 
 .fa-draw-btn {
-  background: #43AC6A;
+  background: #53c644;
   color: #fff;
   font-size: 0.9rem;
   display: block;
@@ -7447,7 +7416,7 @@ label {
   margin-left: 0;
   margin-right: 0; }
   .fa-draw-btn:hover, .fa-draw-btn:focus {
-    background: #3c9a5f;
+    background: #47b838;
     color: #fff; }
   .fa-draw-btn .iconic * {
     fill: #fff;
@@ -7503,21 +7472,13 @@ label {
   padding-top: 15px; }
 
 .fa-edit-btn-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 41.66667%;
-  max-width: 41.66667%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%; }
 
 .fa-edit-btn {
   border: 1px solid #de0a18;
@@ -7562,55 +7523,31 @@ label {
   background-position: 15px 50%; }
 
 .fa-like-btn-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 8.33333%;
-  max-width: 8.33333%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%; }
 
 .fa-post-btn-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 8.33333%;
-  max-width: 8.33333%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 0 0 8.33333%;
+  max-width: 8.33333%; }
 
 .fa-share-btn-area {
-  display: flex;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-  backface-visibility: hidden;
-  flex: 0 0 41.66667%;
-  max-width: 41.66667%;
-  flex-flow: row wrap;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  justify-content: flex-start;
-  order: 0;
+  display: block;
+  padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar; }
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  flex: 0 0 41.66667%;
+  max-width: 41.66667%; }
 
 .fa-share-btn {
   background: #de0a18;
@@ -7665,6 +7602,13 @@ label {
   background-color: #fff;
   border-top: 1px solid #d40a17; }
   .fa-credit-bar ul {
+    display: block;
+    padding: 0 1rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    flex: 0 0 auto;
+    overflow: visible;
     list-style-type: none;
     margin: 0;
     padding-bottom: 8px;
@@ -7675,3 +7619,5 @@ label {
         color: #c60915;
         font-size: 0.9em;
         margin-right: 15px; }
+    .fa-credit-bar ul li a:hover {
+      color: #f40d1d; }
