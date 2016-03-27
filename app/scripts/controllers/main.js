@@ -92,8 +92,14 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         var t=  document.getElementById('message').textContent;
         ctx.beginPath();
         ctx.rect(0, 0, 600, 450);
-        ctx.fillStyle = "white";
+        ctx.fillStyle = "#a40301";
         ctx.fill();
+        var imgpatter=document.getElementById('imgbg');
+        var pat=ctx.createPattern(imgpatter,"repeat");
+        ctx.rect(0,0,600,450);
+        ctx.fillStyle=pat;
+        ctx.fill();
+
         ctx.fillStyle = "black";
         ctx.fillText('Minimie Friend\'s Card',40,50);//fills the canvas with the default minimie message.
         var maxWidth = 200;      var lineHeight = 25; //sets maximum width and line for the user message for warping the text-align
@@ -103,7 +109,6 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         //ctx.fillText(t,310,100);
         var i= document.getElementById('card_img');
         ctx.drawImage(i,40,80,250, 250);
-
     }
     $scope.wrapText=function(context, text, x, y, maxWidth, lineHeight) {
         var words = text.split(' ');
