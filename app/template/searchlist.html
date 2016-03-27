@@ -5,7 +5,7 @@
         <div class="angucomplete-searching" ng-show="!searching && (!results || results.length == 0) && (id != 'service_finder')">
         No results found</div>
         <div class="angucomplete-row" ng-repeat="result in results" ng-mousedown="selectResult(result)" ng-mouseover="hoverRow()" ng-class="{'angucomplete-selected-row': $index == currentIndex}">
-            <div ng-if="imageField" class="angucomplete-image-holder">
+            <div ng-if="imageField" class="angucomplete-image-holder ">
                 <img ng-if="result.image && result.image != ''" ng-src="{{result.image}}" class="angucomplete-image"/>
                 <div ng-if="!result.image && result.image != ''" class="angucomplete-image-default"></div>
             </div>

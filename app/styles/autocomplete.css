@@ -35,3 +35,12 @@
 * html .ui-autocomplete {
     height: 250px;
 }
+.angucomplete-image{
+height: 40px;
+float: left;
+border-radius: 50%;
+margin-right: 20px;
+}
+.angucomplete-row{clear:both; height:40px; margin: 10px; cursor: pointer}
+.angucomplete-row:hover{ background: #fff; border-radius: 20px;}
+.angucomplete-title{float:left; margin-top:10px}
