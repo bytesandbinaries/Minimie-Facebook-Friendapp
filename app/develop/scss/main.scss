@@ -97,6 +97,20 @@ $foundation-version: '1.2.0';
     position: relative;
 }
 
+
+//------------------------------------------------------Animations
+
+.fa-slide-up {
+  @include slide(
+    $dir: in, // Specify in or out
+    $from: bottom, // Can be top, right, bottom, or left
+    $fade: false, // If true, the element fades simultaneously
+    $duration: 1s,
+    $timing: easeIn,
+    $delay: 0
+  );
+}
+
 ////---------------------------------------------------Header Area
 
 .fa-header{
@@ -207,6 +221,7 @@ label{
 }
 
 .fa-edit-panel{
+    @extend .fa-slide-up;
     @include grid-block;
     @include grid-align(center);
     @include grid-orient(vertical);
@@ -246,6 +261,7 @@ label{
         font-size: 1.2rem;
         color: darken($info-color, 30);
     }
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
 }
 
 .fa-editable-msg:focus{
@@ -287,6 +303,7 @@ label{
     margin-right: 30px;
     margin-left: 30px;
     margin-top: 30px;
+//    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.6);
 }
 
 //---------------------------------------------------Actions bar
