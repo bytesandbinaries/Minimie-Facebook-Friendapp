@@ -65,9 +65,17 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
 
     $scope.user=userData.data();
     $scope.showcanvass=false
-    $scope.picture_url=[{url:'1.png'},{url:'2.png'},{url:'3.png'},{url:'4.png'}];
+    $scope.picture_url=[
+            {url:'1.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:226, h:319, r:0.85},
+            {url:'2.png', message:"Message 2"},
+            {url:'3.png', message:"Message 3"},
+            {url:'4.png', message:"Message 4"}];
     $scope.mainurl=$scope.picture_url[0].url;
+    $scope.textwritup= $scope.picture_url[0].message;
     $scope.imgpos=0;
+    $scope.imgheight=319;
+    $scope.imgwidth=226;
+    $scope.imgr=0.85;
     new Medium({
         element: document.getElementById('message'),
         mode: Medium.richMode
@@ -79,6 +87,10 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         ($scope.imgpos<0)?$scope.imgpos=0:($scope.imgpos>($scope.picture_url.length-1))?$scope.imgpos=$scope.picture_url.length-1:$scope.imgpos=$scope.imgpos;
         console.log($scope.imgpos);
         $scope.mainurl=$scope.picture_url[$scope.imgpos].url;
+        $scope.imgheight=$scope.picture_url[$scope.imgpos].h;// image height
+        $scope.imgwidth=$scope.picture_url[$scope.imgpos].w;// image width
+        $scope.imgr=$scope.picture_url[$scope.imgpos].r; // the image reduction on canvas
+        $scope.textwritup= $scope.picture_url[$scope.imgpos].message;
     }
     $scope.message="Editable text, click to add or edit the content";
 
@@ -91,12 +103,12 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         ctx.font = "30px Arial";
         var t=  document.getElementById('message').textContent;
         ctx.beginPath();
-        ctx.rect(0, 0, 600, 450);
+        ctx.rect(0, 0, 600, 400);
         ctx.fillStyle = "#a40301";
         ctx.fill();
         var imgpatter=document.getElementById('imgbg');
         var pat=ctx.createPattern(imgpatter,"repeat");
-        ctx.rect(0,0,600,450);
+        ctx.rect(0,0,600,400);
         ctx.fillStyle=pat;
         ctx.fill();
 
@@ -108,7 +120,10 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         $scope.wrapText(ctx, t, 310, 100, maxWidth, lineHeight);//calls a function that wrap the text and draws it.
         //ctx.fillText(t,310,100);
         var i= document.getElementById('card_img');
-        ctx.drawImage(i,40,80,250, 250);
+        var imgh= Math.floor($scope.imgheight*$scope.imgr); //calculate new image height
+        var imgw= Math.floor($scope.imgwidth*$scope.imgr);  //calculates new image width
+        console.log(imgh);
+        ctx.drawImage(i,40,80,imgw, imgh);
     }
     $scope.wrapText=function(context, text, x, y, maxWidth, lineHeight) {
         var words = text.split(' ');
@@ -138,7 +153,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
                     headers: {'Content-Type': undefined}                })
          .then(function(response){
 
-             var url='http://bytesandbinaries.com/app/images/'+response.data;
+             var url='http://bytesandbinaries.com/minimiefb/images/'+response.data;
              console.log(url);
              //request accessToken
              FB.getLoginStatus(function(response) {
