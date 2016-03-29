@@ -1,7 +1,7 @@
 <div ng-controller="AppCtrl">
         <div class="fa-header">
             <div class="fa-logo-area">
-                <img src="images/fa-main-logo.png" class="fa-logo">
+                <img src="images/fa-main-logo.png" id="minimie_logo" class="fa-logo">
             </div>
             <div class="fa-login-area">
                <div class="fa-logged-in" ng-show="user.name!='login'">
@@ -13,9 +13,7 @@
                        <i class="fa fa-facebook"></i> Login
                    </button>
                </div>
-
             </div>
-
         </div>
 
         <div class="fa-card-opt-area">
@@ -24,11 +22,15 @@
             </div>
             <div class="fa-card-nav-area">
                 <a class="fa-card-nav-prev">
-                    <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
+                    <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
                 </a>
-                <div class="fa-card-nav-count"></div>
+                <div class="fa-card-nav-count">
+                    <!-- <span ng-bind="imgpos + 1"></span>
+                    <span>OF</span>
+                    <span ng-bind="picture_url.length"></span> -->
+                </div>
                 <a class="fa-card-nav-next">
-                    <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
+                    <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
                 </a>
             </div>
         </div>
@@ -97,5 +99,8 @@
                 <li><a>About Minimie</a></li>
             </ul>
             <img src="images/card_bg.jpg" width="0" height="0" id="imgbg"/>
+            <img src="images/2.png" width="0" height="0" id="imgbg"/>
+            <img src="images/3.png" width="0" height="0" id="imgbg"/>
+            <img src="images/4.png" width="0" height="0" id="imgbg"/>
         </div>
 </div>
