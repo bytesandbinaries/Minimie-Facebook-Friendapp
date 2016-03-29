@@ -74,7 +74,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
     $scope.textwritup= $scope.picture_url[0].message;
     $scope.imgpos=0;
     $scope.imgheight=319;
-    $scope.imgwidth=226;
+    $scope.imgwidth=319;
     $scope.imgr=0.85;
     new Medium({
         element: document.getElementById('message'),
