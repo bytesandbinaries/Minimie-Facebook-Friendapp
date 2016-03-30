@@ -66,10 +66,13 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
     $scope.user=userData.data();
     $scope.showcanvass=false
     $scope.picture_url=[
-            {url:'1.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:226, h:319, r:0.85},
-            {url:'2.png', message:"<p></p>"},
-            {url:'3.png', message:"<p></p>"},
-            {url:'4.png', message:"<p></p>"}];
+
+            {url:'1.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'2.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'3.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'4.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:319, h:319, r:1}]
+
+
     $scope.mainurl=$scope.picture_url[0].url;
     $scope.textwritup= $scope.picture_url[0].message;
     $scope.imgpos=0;
@@ -85,14 +88,12 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
     //    console.log($scope.imgpos);
         (dir==0)?$scope.imgpos++:$scope.imgpos--;
         ($scope.imgpos<0)?$scope.imgpos=0:($scope.imgpos>($scope.picture_url.length-1))?$scope.imgpos=$scope.picture_url.length-1:$scope.imgpos=$scope.imgpos;
-        console.log($scope.imgpos);
         $scope.mainurl=$scope.picture_url[$scope.imgpos].url;
         $scope.imgheight=$scope.picture_url[$scope.imgpos].h;// image height
         $scope.imgwidth=$scope.picture_url[$scope.imgpos].w;// image width
         $scope.imgr=$scope.picture_url[$scope.imgpos].r; // the image reduction on canvas
         $scope.textwritup= $scope.picture_url[$scope.imgpos].message;
     }
-    $scope.message="Editable text, click to add or edit the content";
 
     $scope.draw=function(){
         //this draws all the element on the canvas;
@@ -112,18 +113,24 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         ctx.fillStyle=pat;
         ctx.fill();
 
-        ctx.fillStyle = "black";
-        ctx.fillText('Minimie Friend\'s Card',40,50);//fills the canvas with the default minimie message.
+        var imglogo=document.getElementById("minimie_logo");
+        ctx.drawImage(imglogo,320,40, 118,56);
+
+        //ctx.fillStyle = "black";
+        //ctx.fillText('Minimie Friend\'s Card',40,50);//fills the canvas with the default minimie message.
         var maxWidth = 200;      var lineHeight = 25; //sets maximum width and line for the user message for warping the text-align
+
         ctx.font= "20px Delius Swash Caps";
         ctx.fillStyle = '#f7f7f7';
         $scope.wrapText(ctx, t, 310, 100, maxWidth, lineHeight);//calls a function that wrap the text and draws it.
+
         //ctx.fillText(t,310,100);
         var i= document.getElementById('card_img');
+        console.log($scope.imgheight)
         var imgh= Math.floor($scope.imgheight*$scope.imgr); //calculate new image height
         var imgw= Math.floor($scope.imgwidth*$scope.imgr);  //calculates new image width
         console.log(imgh);
-        ctx.drawImage(i,40,80,imgw, imgh);
+        ctx.drawImage(i,0,80,imgw, imgh);
     }
     $scope.wrapText=function(context, text, x, y, maxWidth, lineHeight) {
         var words = text.split(' ');

@@ -7668,3 +7668,6 @@ label {
         margin-right: 15px; }
     .fa-credit-bar ul li a:hover {
       color: #f40d1d; }
+
+.fa-hide-img {
+  position: absolute; }
