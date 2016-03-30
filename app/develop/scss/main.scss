@@ -105,7 +105,18 @@ $foundation-version: '1.2.0';
     $dir: in, // Specify in or out
     $from: bottom, // Can be top, right, bottom, or left
     $fade: false, // If true, the element fades simultaneously
-    $duration: 1s,
+    $duration: 0.8s,
+    $timing: easeIn,
+    $delay: 0
+  );
+}
+
+.fa-slide-down {
+  @include slide(
+    $dir: out, // Specify in or out
+    $from: bottom, // Can be top, right, bottom, or left
+    $fade: false, // If true, the element fades simultaneously
+    $duration: 0.8s,
     $timing: easeIn,
     $delay: 0
   );
@@ -171,20 +182,37 @@ $foundation-version: '1.2.0';
 //---------------------------------------------------Card Area
 
 .fa-card-opt-area{
-    min-height: 450px;
-    padding: 100px 100px 30px;
+    @include grid-block(
+        $align:center,
+        $wrap:true
+        );
+    min-height: 580px;
+//    padding: 100px 100px 30px;
 }
 
+.fa-intro{
+    }
+
 .fa-card{
-    width: 100%;
+    @include grid-content(
+        $size:8
+//        $offset:2
+        );
+    min-height: 350px;
     border: 15px solid #fff;
     background-color: #fff;
     border-radius: $global-radius;
+    margin-top: 100px;
+    background-image: url(../../images/img-bg.png);
 }
 
 .fa-card-nav-area{
-    @include grid-block;
+    @include grid-block(
+        $size:8
+        );
     margin-top:30px;
+    margin-bottom: 30px;
+//    height: 50px;
 }
 
 .fa-card-nav-prev{
@@ -221,19 +249,25 @@ label{
 }
 
 .fa-edit-panel{
+    position: absolute!important;
+    z-index: 1000;
+//    float:right;
     @extend .fa-slide-up;
-    @include grid-block;
-    @include grid-align(center);
+    @extend .fa-slide-down;
+    @include grid-block(
+        $size:expand
+        );
+//    @include grid-align(center);
     @include grid-orient(vertical);
     min-height: 300px;
     background-color: lighten(#e3e3e3,9);
-    padding-bottom: 20px;
-    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-top: 60px;
 }
 
 .fa-edit-options{
     @include grid-container(
-        $width:60%,
+        $width:80%,
         $align:center
         );
 //    @include grid-orient(vertical);
@@ -247,7 +281,7 @@ label{
 
     background: lighten(#e3e3e3,7);
     background: repeating-linear-gradient(#fff, #fff 29px, #d9eaf3 29px, #d9eaf3 30px, #fff 30px  );
-    
+    max-width: 400px;
     padding: 6.5px 30px 19px 30px ;
     border: 1px solid darken(#e3e3e3,10);
     margin-bottom: 30px;
@@ -394,10 +428,12 @@ label{
 
 .fa-credit-bar{
     @include grid-block();
+    
 //    @include menu-simple;
     color: #eee;
     background-color:#fff;
     border-top:1px solid darken($primary-color,2);
+//    height: 50px;
     ul{
         @include grid-content(
             $size:shrink
@@ -406,6 +442,7 @@ label{
         margin: 0;
         padding-bottom: 8px;
         padding-top: 8px;
+//        height: 30px;
         li{
             display: inline-block;
             a{

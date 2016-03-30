@@ -67,14 +67,14 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
     $scope.showcanvass=false
     $scope.picture_url=[
             {url:'1.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p>Olakuunmi.</p>", w:226, h:319, r:0.85},
-            {url:'2.png', message:"Message 2"},
-            {url:'3.png', message:"Message 3"},
-            {url:'4.png', message:"Message 4"}];
+            {url:'2.png', message:"<p></p>"},
+            {url:'3.png', message:"<p></p>"},
+            {url:'4.png', message:"<p></p>"}];
     $scope.mainurl=$scope.picture_url[0].url;
     $scope.textwritup= $scope.picture_url[0].message;
     $scope.imgpos=0;
-    $scope.imgheight=319;
-    $scope.imgwidth=319;
+    $scope.imgheight=350;
+    $scope.imgwidth=350;
     $scope.imgr=0.85;
     new Medium({
         element: document.getElementById('message'),
@@ -100,11 +100,11 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         var c = document.getElementById("card");
         var ctx = c.getContext("2d");
         ctx.clearRect(0, 0, c.width, c.height);//clears the content of the canvas before drawing
-        ctx.font = "30px Arial";
+        ctx.font = "30px Delius Swash Caps";
         var t=  document.getElementById('message').textContent;
         ctx.beginPath();
         ctx.rect(0, 0, 600, 400);
-        ctx.fillStyle = "#a40301";
+        ctx.fillStyle = "#e74908";
         ctx.fill();
         var imgpatter=document.getElementById('imgbg');
         var pat=ctx.createPattern(imgpatter,"repeat");
@@ -115,8 +115,8 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         ctx.fillStyle = "black";
         ctx.fillText('Minimie Friend\'s Card',40,50);//fills the canvas with the default minimie message.
         var maxWidth = 200;      var lineHeight = 25; //sets maximum width and line for the user message for warping the text-align
-        ctx.font= "20px Calibri";
-        ctx.fillStyle = '#f99';
+        ctx.font= "20px Delius Swash Caps";
+        ctx.fillStyle = '#f7f7f7';
         $scope.wrapText(ctx, t, 310, 100, maxWidth, lineHeight);//calls a function that wrap the text and draws it.
         //ctx.fillText(t,310,100);
         var i= document.getElementById('card_img');

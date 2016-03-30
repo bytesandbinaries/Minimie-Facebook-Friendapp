@@ -19,7 +19,54 @@
         </div>
 
         <div class="fa-card-opt-area">
-            <div class="fa-card" style="text-align:center; background:beige">
+          
+<!--
+          <div class="fa-intro">
+              <p>Create a card for a special friend</p>
+              <p>Start by picking an image below</p>
+          </div>
+-->
+           
+            <div class="fa-edit-panel" id="fa-edit-panel" ng-show="toggler">
+              
+               <div class="fa-edit-options">
+                  <label class="">Click on the message below to edit it</label>
+                   <div class="fa-editable-msg" id="message" ng-bind-html="textwritup">
+                       <p>The dark ones run when they see the sun.</p>
+                       <p>But you and I, we only run for fun.</p>
+                       <p>My BBF Forever:</p>
+                       <p>Olakuunmi.</p>
+                   </div>
+
+                  <div class="fa-fb-friend-list">
+                      <label>Who would you like to share this card with?</label>
+                    <angucomplete class='fa-floater' localdata="allfriends"
+                          id="friendlist"
+                          titlefield="name"
+                          searchfields="name"
+                          selectedobject="id"
+                          imagefield="picture.data.url"
+                          minlenght='3'
+                          placeholder="Type Friend's Facebook name" />
+                  </div>
+
+                   <div>
+                       <button class="fa-draw-btn" ng-click="draw()">Create Card</button>
+
+                   </div>
+               </div>
+               
+               <div class="fa-cavass-draw">
+                   <div  class="fa-drawn-card" ng-show="showcanvass">
+                        <canvas id="card" width="540" height="400" style="border:1px solid #d3d3d3;text-align:left;text-indent:0;">
+                            Your browser does not support the HTML5 canvas tag.
+                        </canvas>
+                    </div>
+               </div>
+
+            </div>
+           
+            <div class="fa-card" style="text-align:center; background-image:url(images/img-bg.png)">
                 <img id="card_img" ng-src="images/{{mainurl}}">
             </div>
             <div class="fa-card-nav-area">
@@ -31,46 +78,12 @@
                     <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
                 </a>
             </div>
+            
+            
         </div>
 
 
-        <div class="fa-edit-panel" id="fa-edit-panel" ng-show="toggler">
-           <div class="fa-edit-options">
-              <label class="">Click on the message below to edit it</label>
-               <div class="fa-editable-msg" id="message" ng-bind-html="textwritup">
-                   <p>The dark ones run when they see the sun.</p>
-                   <p>But you and I, we only run for fun.</p>
-                   <p>My BBF Forever:</p>
-                   <p>Olakuunmi.</p>
-               </div>
-
-              <div class="fa-fb-friend-list">
-                  <label>Who would you like to share this card with?</label>
-                <angucomplete class='fa-floater' localdata="allfriends"
-                      id="friendlist"
-                      titlefield="name"
-                      searchfields="name"
-                      selectedobject="id"
-                      imagefield="picture.data.url"
-                      minlenght='3'
-                      placeholder="Type Friend's Facebook name" />
-              </div>
-
-               <div>
-                   <button class="fa-draw-btn" ng-click="draw()">Create Card</button>
-
-               </div>
-           </div>
-
-           <div class="fa-cavass-draw">
-               <div  class="fa-drawn-card" ng-show="showcanvass">
-                    <canvas id="card" width="540" height="400" style="border:1px solid #d3d3d3;text-align:left;text-indent:0;">
-                        Your browser does not support the HTML5 canvas tag.
-                    </canvas>
-                </div>
-            </div>
-
-        </div>
+        
 
         <div class="fa-action-bar">
             <div class="fa-edit-btn-area">
@@ -96,6 +109,6 @@
                 <li><a>Privacy Policy</a></li>
                 <li><a>About Minimie</a></li>
             </ul>
-            <img src="images/card_bg.jpg" width="0" height="0" id="imgbg"/>
+            <img src="images/card_bg.jpg" width="0" height="0" id="imgbg"/ style="position:absolute;">
         </div>
 </div>
