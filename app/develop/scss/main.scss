@@ -4,8 +4,7 @@
 // Licensed under MIT Open Source
 
 @charset 'utf-8';
-@import url(http://fonts.googleapis.com/css?Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
-
+@import url(http://fonts.googleapis.com/css?family=Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
 @import 'foundation';
 @import 'settings';
 @import 'motion-ui';
@@ -317,7 +316,7 @@ label{
         border: 1px solid darken(#e3e3e3, 10);
         margin-bottom: 30px;
     }
-    
+
 }
 
 .fa-draw-btn{
@@ -360,7 +359,7 @@ label{
     @include button-style(
         $background:$primary-color,
         $background-hover:darken($primary-color,5),
-        $color:#fff, 
+        $color:#fff,
         $style:hollow
         );
     @include button-size(
@@ -428,7 +427,7 @@ label{
 
 .fa-credit-bar{
     @include grid-block();
-    
+
 //    @include menu-simple;
     color: #eee;
     background-color:#fff;

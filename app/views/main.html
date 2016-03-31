@@ -16,17 +16,35 @@
             </div>
         </div>
 
-        <div class="fa-card-opt-area">
-          
+        <div class="fa-card-opt-area" >
+
 <!--
           <div class="fa-intro">
               <p>Create a card for a special friend</p>
               <p>Start by picking an image below</p>
           </div>
 -->
-           
-            <div class="fa-edit-panel" id="fa-edit-panel" ng-show="toggler">
-              
+            <div id="select-card-image" ng-show="appflow=='select_picture'">
+                <div class="fa-card" style="text-align:center; background-image:url(images/img-bg.png)">
+                    <img id="card_img" ng-src="images/{{mainurl}}">
+                </div>
+                <div class="fa-card-nav-area">
+                    <a class="fa-card-nav-prev">
+                        <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
+                    </a>
+                    <div class="fa-card-nav-count">
+                        <!-- <span ng-bind="imgpos + 1"></span>
+                        <span>OF</span>
+                        <span ng-bind="picture_url.length"></span> -->
+                    </div>
+                    <a class="fa-card-nav-next">
+                        <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
+                    </a>
+                </div>
+            </div>
+
+            <div class="fa-edit-panel" id="fa-edit-panel" ng-show="appflow=='edit-message-tagfriend'" >
+
                <div class="fa-edit-options">
                   <label class="">Click on the message below to edit it</label>
                    <div class="fa-editable-msg" id="message" ng-bind-html="textwritup">
@@ -53,47 +71,43 @@
 
                    </div>
                </div>
-               
-               <div class="fa-cavass-draw">
-                   <div  class="fa-drawn-card" ng-show="showcanvass">
-                        <canvas id="card" width="540" height="400" style="border:1px solid #d3d3d3;text-align:left;text-indent:0;">
-                            Your browser does not support the HTML5 canvas tag.
-                        </canvas>
-                    </div>
-               </div>
-
             </div>
-           
-            <div class="fa-card" style="text-align:center; background-image:url(images/img-bg.png)">
-                <img id="card_img" ng-src="images/{{mainurl}}">
+            <div class="fa-cavass-draw" ng-show="appflow=='card_view'">
+                <div  class="fa-drawn-card" ng-show="showcanvass">
+                     <canvas id="card" width="540" height="400" style="border:1px solid #d3d3d3;text-align:left;text-indent:0;">
+                         Your browser does not support the HTML5 canvas tag.
+                     </canvas>
+                 </div>
+                 <div ng-show="message">
+                     <div class="notify" ng-show="note_message=='processing'">Please wait we are processing your card...</div>
+                     <div class="notify" ng-show="note_message=='error'">There was an error processing your request. Please try again.</div>
+                     <div class="notify" ng-show="note_message=='success'">Your Card was shared successfully. Thanks for using Minimie friend app...</div>
+                 </div>
             </div>
-            <div class="fa-card-nav-area">
-                <a class="fa-card-nav-prev">
-                    <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
-                </a>
-                <div class="fa-card-nav-count">
-                    <!-- <span ng-bind="imgpos + 1"></span>
-                    <span>OF</span>
-                    <span ng-bind="picture_url.length"></span> -->
+            <div class="notify nopermission" ng-show="showpermission">
+                <h4>You've Denied the following permissions</h4>
+                <div class="deniedpermission" ng-repeat="denied in deniedpermission track by $index">
+                    <span ng-bind="denied"></span>
                 </div>
-                <a class="fa-card-nav-next">
-                    <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
-                </a>
+                <div class="" ng-click="relogin()">Try Again</div>
             </div>
-            
-            
         </div>
-
-
-        
-
         <div class="fa-action-bar">
             <div class="fa-edit-btn-area">
-                <a ng-model="toggler" ng-click="toggler=!toggler" class="fa-edit-btn">
+                <a class="fa-edit-btn" ng-show="appflow=='select_picture'" ng-click="changeview('edit-message-tagfriend')">
 <!--                    <span class="fa-icon fa-edit-icon"></span>-->
-                    Add a Message
+                    <span>Add a Message</span>
+                </a>
+                <a class="fa-edit-btn" ng-show="appflow=='edit-message-tagfriend'" ng-click="changeview('select_picture')">
+                    <span >Select Card Picture</span>
+                </a>
+                <a class="fa-edit-btn" ng-show="appflow=='card_view'" ng-click="changeview('edit-message-tagfriend')">
+                    <span>Edit Message</span>
                 </a>
             </div>
+
+
+
             <div class="fa-like-btn-area"></div>
             <div class="fa-post-btn-area"></div>
             <div class="fa-share-btn-area">
@@ -103,6 +117,7 @@
                 </button>
                 <a class="fa-share-btn" ng-show="user.name=='login'" ng-click="FBlogin()">Login to share</a>
             </div>
+
         </div>
 
         <div class="fa-credit-bar">
@@ -113,9 +128,9 @@
             </ul>
 
             <img class="fa-hide-img" src="images/card_bg.jpg" width="0" height="0" id="imgbg"/>
-            <img class="fa-hide-img" src="images/2.png" width="0" height="0" id="imgbg"/>
-            <img class="fa-hide-img" src="images/3.png" width="0" height="0" id="imgbg"/>
-            <img class="fa-hide-img" src="images/4.png" width="0" height="0" id="imgbg"/>
+            <img class="fa-hide-img" src="images/2.png" width="0" height="0"/>
+            <img class="fa-hide-img" src="images/3.png" width="0" height="0"/>
+            <img class="fa-hide-img" src="images/4.png" width="0" height="0"/>
 
         </div>
 </div>

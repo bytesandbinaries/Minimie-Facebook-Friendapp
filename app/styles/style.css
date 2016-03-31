@@ -1,0 +1,16 @@
+.notify{width: 70%;
+margin: 20px auto;
+background: #eee;
+padding: 20px;
+border-radius: 4px;
+font-weight: bold;
+line-height: 1.5;
+border: 5px #fff solid;
+color: #f55;
+}
+.nopermission{
+    position: absolute;
+    top: 50px;
+    z-index: 1000;
+    left: 90px;
+}

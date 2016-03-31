@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
+@import url(http://fonts.googleapis.com/css?family=Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -7188,7 +7188,7 @@ meta.foundation-mq {
   max-width: 600px;
   margin: 0 auto;
   background: #fb5000;
-  background-image: url(../../images/fa-bg-pattern.png); }
+  background-image: url(../images/fa-bg-pattern.png); }
 
 .fa-icon {
   width: 50%;
@@ -7196,7 +7196,7 @@ meta.foundation-mq {
   display: inline-block;
   position: absolute;
   top: -0.1em;
-  background-image: url(../../images/fa-like-icon.png);
+  background-image: url(../images/fa-like-icon.png);
   background-repeat: no-repeat;
   background-origin: border-box; }
 
@@ -7328,6 +7328,7 @@ meta.foundation-mq {
 
 .fa-card {
   display: block;
+  margin:auto;
   padding: 0 1rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -7344,6 +7345,7 @@ meta.foundation-mq {
 .fa-card-nav-area {
   display: flex;
   height: auto;
+  margin:auto;
   position: relative;
   overflow: hidden;
   backface-visibility: hidden;
@@ -7390,7 +7392,7 @@ label {
   font-weight: bold; }
 
 .fa-edit-panel {
-  position: absolute !important;
+  /*position: absolute !important;*/
   z-index: 1000;
   display: flex;
   height: auto;
@@ -7536,7 +7538,7 @@ label {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  background-image: url(../../images/fa-edit-icon.png);
+  background-image: url(../images/fa-edit-icon.png);
   background-repeat: no-repeat;
   background-size: 26px;
   background-position: 15px 50%; }
@@ -7564,7 +7566,7 @@ label {
     margin-top: -2px; }
 
 .fa-edit-btn:hover {
-  background-image: url(../../images/fa-edit-icon.png);
+  background-image: url(../images/fa-edit-icon.png);
   background-repeat: no-repeat;
   background-size: 30px;
   background-position: 15px 50%; }
