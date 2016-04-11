@@ -6,7 +6,7 @@ appServices.service('levelData', function(){
   }
 })
 appServices.service('userData', ['$rootScope','$location', function($rootScope,$location){
-  var savedData =  {name:'login', id:'1',  totalscore:0, email:'', currentlevel:1, friendId:'', allfriends:[], status:'', facebook:'', prop_pict:'images/knewbie.png'}
+  var savedData =  {name:'login', id:'1',  permissions:{}, email:'', currentlevel:1, friendId:'', allfriends:[], status:'', facebook:'', prop_pict:'images/knewbie.png'}
 
   return{
      data:function() {   return savedData; }
@@ -42,7 +42,6 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 		  user.name=token.token.split('.')[0];
 		  user.id=token.id;
 		  user.status='NewPlayer';
-
 	  }
 	  else{
 		  user.name=token.token.split('.')[0];
@@ -51,7 +50,6 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 		  user.totalscore=token.totalscore;
 		  user.email=token.email;
 		  user.currentlevel=token.level;
-
 		 // user.lastLscore=token.lastlevelscore;
 		  user.line1=token.line1;
 		  user.line2=token.line2;
@@ -76,7 +74,7 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 		$http({url:'server/register_user.php?', method:'GET', params:regprams}).
               success(function(responseData, status, headers, config) {
                   data=responseData;
-      			  loading=false;
+    			  loading=false;
                   userCred(data, 'newp')
               },
               function(err) {
@@ -140,7 +138,19 @@ appServices.service('AuthService', ['userData','$q','$http','USER_ROLES','$locat
 					//   function(err) {  register($reg).then(  function(authenticated){}, function(err) {} );
 					//   }
 					// );
-                    $rootScope.$broadcast('loadFriends');
+                    FB.api(
+                        "/"+user.id+"/permissions",
+                        function (response) {
+                          if (response && !response.error) {
+                            user.permissions=response.data;
+                            console.log(user.permissions);
+                          }
+                          $rootScope.$broadcast('loadFriends');
+                          $rootScope.$apply();
+                        }
+
+                    );
+
 					// if(res.friends.data.length>0){
 					// 	friends = [];
 					// 	for($j=0; $j<res.friends.data.length; $j++)	{
