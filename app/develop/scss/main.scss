@@ -228,6 +228,7 @@ $foundation-version: '1.2.0';
 }
 
 .fa-card-nav-area{
+
     @include grid-block(
         $size:8
         );
@@ -274,9 +275,7 @@ label{
 
 .fa-edit-panel{
 
-
-   position: absolute!important;
-
+   // position: absolute!important;
     z-index: 1000;
     top:0;
 //    width: 70%;
