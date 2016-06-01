@@ -88,7 +88,17 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
             {url:'1.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
             {url:'2.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
             {url:'3.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
-            {url:'4.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1}]
+            {url:'4.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'5.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'6.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'7.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'8.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'9.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'10.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'11.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'12.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'13.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1},
+            {url:'14.png', message:"<p>The dark ones run when they see the sun.</p><p>But you and I, we only run for fun.</p><p>My BBF Forever:</p><p> Olakuunmi.</p>", w:319, h:319, r:1}]
 
 
     $scope.mainurl=$scope.picture_url[0].url;
@@ -116,7 +126,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
             new Medium({
                 element: document.getElementById('message'),
                 mode: Medium.richMode
-                //placeholder: 'Your Arti
+                //placeholder: 'Your Art
             });
         }
     }
@@ -165,7 +175,7 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         var imgh= Math.floor($scope.imgheight*$scope.imgr); //calculate new image height
         var imgw= Math.floor($scope.imgwidth*$scope.imgr);  //calculates new image width
         console.log(imgh);
-        ctx.drawImage(i,0,80,imgw, imgh);
+        ctx.drawImage(i,0,60,imgw, imgh);
         $scope.appflow="card_view";
     }
     $scope.wrapText=function(context, text, x, y, maxWidth, lineHeight) {

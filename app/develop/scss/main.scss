@@ -183,55 +183,80 @@ $foundation-version: '1.2.0';
 .fa-card-opt-area{
     @include grid-block(
         $align:center,
-        $wrap:true
+        $orientation:vertical
+//        $wrap:true
         );
     min-height: 580px;
+    position: relative;
 //    padding: 100px 100px 30px;
 }
 
 .fa-intro{
+//    @include grid-content(
+//        $size:expand
+////        $align:center
+//        );
+    margin-top: 20px;
+    p{
+        text-align: center;
+        color: #fff;
+        font-size: 1.2rem;
+        line-height: 1;
     }
+}
+
+.fa-card-wrap{
+    @include grid-container(
+        $width:70%,
+        $align:center
+        );
+}
 
 .fa-card{
-    @include grid-content(
-        $size:8
-//        $offset:2
-        );
+//    @include grid-content(
+//        $size:12
+////        $offset:2
+//        );
     min-height: 350px;
     border: 15px solid #fff;
     background-color: #fff;
     border-radius: $global-radius;
-    margin-top: 100px;
+    // margin-top: 100px; Olushola Edit
+    margin:100px auto 0;
     background-image: url(../../images/img-bg.png);
+    background-size: cover;
 }
 
 .fa-card-nav-area{
     @include grid-block(
         $size:8
         );
-    margin-top:30px;
-    margin-bottom: 30px;
+    // margin-top:30px;
+    // margin-bottom: 30px; Olushola Edit.
+    margin:30px auto;
 //    height: 50px;
+
 }
 
 .fa-card-nav-prev{
-    @include grid-content(
-        $size:3
-    );
+//    @include grid-content(
+//        $size:3
+//    );
     img{
         height:40px;
     }
 }
 
-//.fa-card-nav-count{
-//    @include grid-block(6);
-//}
+.fa-card-nav-count{
+    color: #fff;
+//    font-weight:bold;
+}
 
 .fa-card-nav-next{
-    @include grid-content(
-        $size:3,
-        $offset:6
-    );
+//    @include grid-content(
+//        $size:3
+//        $offset:6
+//    );
     img{
         height:40px;
         float: right;
@@ -248,35 +273,43 @@ label{
 }
 
 .fa-edit-panel{
-    position: absolute!important;
+
+    // position: absolute!important; Olushola Edit
+
     z-index: 1000;
-//    float:right;
+    top:0;
+//    width: 70%;
+//    width: 70%;
+    min-height: 600px;
+    margin: 0 auto;
+//    overflow: scroll;
     @extend .fa-slide-up;
-    @extend .fa-slide-down;
-    @include grid-block(
-        $size:expand
-        );
+//    @extend .fa-slide-down;
+//    @include grid-block(
+//        $size:expand
+//        );
 //    @include grid-align(center);
-    @include grid-orient(vertical);
-    min-height: 300px;
+//    @include grid-orient(vertical);
     background-color: lighten(#e3e3e3,9);
     padding-bottom: 30px;
     padding-top: 60px;
 }
 
 .fa-edit-options{
-    @include grid-container(
-        $width:80%,
-        $align:center
-        );
+    margin: 0 auto;
+    width: 90%;
+//    @include grid-container(
+//        $width:80%,
+//        $align:center
+//        );
 //    @include grid-orient(vertical);
 //    @include grid-align(center);
 }
 
 .fa-editable-msg{
-    @include grid-content(
-        $size:expand
-        );
+//    @include grid-content(
+//        $size:expand
+//        );
 
     background: lighten(#e3e3e3,7);
     background: repeating-linear-gradient(#fff, #fff 29px, #d9eaf3 29px, #d9eaf3 30px, #fff 30px  );

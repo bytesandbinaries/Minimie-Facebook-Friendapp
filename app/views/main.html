@@ -18,13 +18,13 @@
 
         <div class="fa-card-opt-area" >
 
-<!--
-          <div class="fa-intro">
-              <p>Create a card for a special friend</p>
-              <p>Start by picking an image below</p>
-          </div>
--->
-            <div id="select-card-image" ng-show="appflow=='select_picture'">
+
+            <div class="fa-card-wrap" id="select-card-image" ng-show="appflow=='select_picture'">
+               
+            <div class="fa-intro">
+              <p>Create a card for a special friend<br>
+              Start by picking an image below</p>
+            </div>
                 <div class="fa-card" style="text-align:center; background-image:url(images/img-bg.png)">
                     <img id="card_img" ng-src="images/{{mainurl}}">
                 </div>
@@ -33,9 +33,9 @@
                         <img src="images/fa-prev-btn.png" class="img_nav" id="image_down" ng-click="select_pic(1)">
                     </a>
                     <div class="fa-card-nav-count">
-                        <!-- <span ng-bind="imgpos + 1"></span>
-                        <span>OF</span>
-                        <span ng-bind="picture_url.length"></span> -->
+                         <span ng-bind="imgpos + 1"></span>
+                        <span>of</span>
+                        <span ng-bind="picture_url.length"></span> 
                     </div>
                     <a class="fa-card-nav-next">
                         <img src="images/fa-next-btn.png" class="img_nav" id="image_down" ng-click="select_pic(0)">
@@ -79,9 +79,15 @@
                      </canvas>
                  </div>
                  <div ng-show="message">
-                     <div class="notify" ng-show="note_message=='processing'">Please wait we are processing your card...</div>
-                     <div class="notify" ng-show="note_message=='error'">There was an error processing your request. Please try again.</div>
-                     <div class="notify" ng-show="note_message=='success'">Your Card was shared successfully. Thanks for using Minimie friend app...</div>
+                     <div class="notify" ng-show="note_message=='processing'">
+                         Please wait we are processing your card...
+                     </div>
+                     <div class="notify" ng-show="note_message=='error'">
+                         There was an error processing your request. Please try again.
+                     </div>
+                     <div class="notify" ng-show="note_message=='success'">
+                         Your Card was shared successfully. Thanks for using Minimie friend app...
+                     </div>
                  </div>
             </div>
             <div class="notify nopermission" ng-show="showpermission">
