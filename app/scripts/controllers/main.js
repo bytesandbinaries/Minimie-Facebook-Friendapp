@@ -151,7 +151,6 @@ main.controller('MainCtrl', ['$scope','$http','userData', function ($scope, $htt
         ctx.drawImage(imglogo,320,40, 118,56);
         var maxWidth = 200;
         var lineHeight = 25; //sets maximum width and line for the user message for warping the text-align
-
         var link = document.createElement('link');
         link.rel = 'stylesheet';
         link.type = 'text/css';
