@@ -1,45 +1,59 @@
-@charset 'utf-8';
-@import url(http://fonts.googleapis.com/css?family=Armata|Michroma);
+// Foundation for Apps
+// by ZURB
+// foundation.zurb.com
+// Licensed under MIT Open Source
 
+@charset 'utf-8';
+@import url(http://fonts.googleapis.com/css?family=Delius+Swash+Caps|Coming+Soon|Arimo:400,700,400italic);
 @import 'foundation';
 @import 'settings';
 @import 'motion-ui';
 
-@include foundation-global-styles;
-@include foundation-grid;
-@include foundation-typography;
-@include foundation-button;
-@include foundation-forms;
-@include foundation-visibility-classes;
-@include foundation-float-classes;
-//@include foundation-accordion;
-//@include foundation-accordion-menu;
-//@include foundation-badge;
-//@include foundation-breadcrumbs;
-@include foundation-button-group;
-@include foundation-callout;
-@include foundation-close-button;
-//@include foundation-drilldown-menu;
-//@include foundation-dropdown;
-//@include foundation-dropdown-menu;
-//@include foundation-flex-video;
-@include foundation-label;
-@include foundation-media-object;
-@include foundation-menu;
-@include foundation-off-canvas;
-//@include foundation-orbit;
-@include foundation-pagination;
-//@include foundation-progress-bar;
-//@include foundation-slider;
-@include foundation-sticky;
-@include foundation-reveal;
-@include foundation-switch;
-//@include foundation-table;
-//@include foundation-tabs;
-@include foundation-thumbnail;
-@include foundation-title-bar;
-@include foundation-tooltip;
-@include foundation-top-bar;
+$foundation-version: '1.2.0';
+
+// Make sure the charset is set appropriately
+@charset "UTF-8";
+
+// Libraries (let's make Normalize an external dependency eventually)
+@import
+  "vendor/normalize";
+
+// Helpers
+@import
+  "helpers/functions",
+  "helpers/mixins",
+  "helpers/breakpoints",
+  "helpers/images";
+
+// Global styles
+@import
+  "global";
+
+// Components
+@import
+  "components/iconic",
+  "components/action-sheet",
+  "components/block-list",
+  "components/button",
+  "components/button-group",
+  "components/card",
+  "components/extras",
+  "components/forms",
+  "components/grid",
+  "components/title-bar",
+  "components/label",
+  "components/list",
+	"components/menu-bar",
+	"components/modal",
+  "components/motion",
+  "components/notification",
+  "components/off-canvas",
+  "components/popup",
+  "components/switch",
+  "components/tabs",
+  "components/accordion",
+  "components/typography",
+  "components/utilities";
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
@@ -50,6 +64,10 @@
 //---------------------------------------------------APP CSS
 //__________________________________________________________
 
+body{
+    font-family: "Arimo"
+}
+
 
 .fa-app-wrapper{
   width: 100%;
@@ -57,11 +75,13 @@
 }
 
 .fa-app-view{
+    @include grid-block;
+    @include grid-orient(vertical);
     max-width:600px;
-    min-height: 450px;
+//    min-height: 450px;
     margin: 0 auto;
     background: $secondary-color;
-    background-image: url(../../images/fa-bg-pattern.png);
+    background-image: url(../images/fa-bg-pattern.png);
 }
 
 .fa-icon{
@@ -71,7 +91,7 @@
     position: absolute;
 //    float: left;
     top:-0.1em;
-    background-image: url(../../images/fa-like-icon.png);
+    background-image: url(../images/fa-like-icon.png);
     background-repeat: no-repeat;
     background-origin: border-box;
 }
@@ -80,10 +100,35 @@
     position: relative;
 }
 
-//---------------------------------------------------Header Area
+
+//------------------------------------------------------Animations
+
+.fa-slide-up {
+  @include slide(
+    $dir: in, // Specify in or out
+    $from: bottom, // Can be top, right, bottom, or left
+    $fade: false, // If true, the element fades simultaneously
+    $duration: 0.8s,
+    $timing: easeIn,
+    $delay: 0
+  );
+}
+
+.fa-slide-down {
+  @include slide(
+    $dir: out, // Specify in or out
+    $from: bottom, // Can be top, right, bottom, or left
+    $fade: false, // If true, the element fades simultaneously
+    $duration: 0.8s,
+    $timing: easeIn,
+    $delay: 0
+  );
+}
+
+////---------------------------------------------------Header Area
 
 .fa-header{
-    @include grid-row();
+    @include grid-block;
     background-color: #fff;
     min-height: 50px;
     padding-top: 10px;
@@ -91,16 +136,22 @@
 }
 
 .fa-logo-area{
-    @include grid-column(6);
+    @include grid-content(
+        $size:3
+    );
+//    @include grid-align(left);
     padding-top: 5px;
 }
 
 .fa-logo{
-    height: 60px;
+//    height: 60px;
 }
 
 .fa-login-area{
-    @include grid-column(6);
+    @include grid-content(
+        $size:9
+    );
+//    @include grid-align(right);
     padding-top: 15px;
 }
 
@@ -112,12 +163,14 @@
 }
 
 .fa-login-btn{
-    @include button(false,$primary-color,darken($primary-color,5),#fff, solid);
+    @extend %button;
+    @include button-style($primary-color,darken($primary-color,5),#fff, solid);
     @extend .login-btn;
 }
 
 .fa-logout-btn{
-    @include button(false,$primary-color,darken($primary-color,5),#fff, hollow);
+    @extend %button;
+    @include button-style(darken($primary-color,5),$primary-color,#fff, hollow);
     @extend .login-btn;
 }
 
@@ -132,66 +185,171 @@
 //---------------------------------------------------Card Area
 
 .fa-card-opt-area{
-    min-height: 450px;
-    padding: 100px 100px 20px;
+    @include grid-block(
+        $align:center,
+        $orientation:vertical
+//        $wrap:true
+        );
+    min-height: 580px;
+    position: relative;
+//    padding: 100px 100px 30px;
+}
+
+.fa-intro{
+//    @include grid-content(
+//        $size:expand
+////        $align:center
+//        );
+    margin-top: 20px;
+    h3{
+        font-family: 'Delius Swash Caps', cursive;
+        text-align: center;
+        color: #fff;
+        font-size: 1.6rem;
+        line-height: 1;
+    }
+    h5{
+        font-family: 'Delius Swash Caps', cursive;
+        text-align: center;
+        color: #fff;
+        font-size: 1.1rem;
+        line-height: 1;
+    }
+}
+
+.fa-card-wrap{
+    @include grid-container(
+        $width:70%,
+        $align:center
+        );
 }
 
 .fa-card{
-    width: 100%;
+//    @include grid-content(
+//        $size:12
+////        $offset:2
+//        );
+    min-height: 350px;
     border: 15px solid #fff;
     background-color: #fff;
     border-radius: $global-radius;
+    // margin-top: 100px; Olushola Edit
+    margin:20px auto 0;
+    background-image: url(../../images/img-bg.png);
+    background-size: cover;
 }
 
 .fa-card-nav-area{
-    @include grid-row();
-    margin-top:20px;
+
+    @include grid-block(
+        $size:8
+        );
+    align-items: center;
+    justify-content: space-between;
+    // margin-top:30px;
+    // margin-bottom: 30px; Olushola Edit.
+    margin:30px auto;
+//    height: 50px;
+
 }
 
 .fa-card-nav-prev{
-    @include grid-column(3);
+//    @include grid-content(
+//        $size:3
+//    );
+    img{
+        height:40px;
+    }
 }
 
 .fa-card-nav-count{
-    @include grid-column(6);
+    color: #fff;
+//    font-weight:bold;
 }
 
 .fa-card-nav-next{
-    @include grid-column(3);
+//    @include grid-content(
+//        $size:3,
+//        $offset:6
+//    );
+    img{
+        height:40px;
+        float: right;
+    }
 }
 
 //---------------------------------------------------Edit Panel
 
 
 label{
-        color: darken($success-color,12);
+        color: darken(#e3e3e3,20);
         text-align: center;
         font-weight: bold;
 }
 
 .fa-edit-panel{
-    @include grid-row();
-    min-height: 300px;
-    background-color: lighten(#e3e3e3,3);
-    padding-bottom: 20px;
-    padding-top: 30px;
+
+   // position: absolute!important;
+    z-index: 1000;
+    top:0;
+//    width: 70%;
+//    width: 70%;
+    min-height: 600px;
+    margin: 0 auto;
+//    overflow: scroll;
+    @extend .fa-slide-up;
+//    @extend .fa-slide-down;
+//    @include grid-block(
+//        $size:expand
+//        );
+//    @include grid-align(center);
+//    @include grid-orient(vertical);
+    background-color: lighten(#e3e3e3,9);
+    padding-bottom: 30px;
+    padding-top: 60px;
 }
 
 .fa-edit-options{
-    @include grid-column(8);
-    @include grid-column-position(center);
+    margin: 0 auto;
+    width: 90%;
+//    @include grid-container(
+//        $width:80%,
+//        $align:center
+//        );
+//    @include grid-orient(vertical);
+//    @include grid-align(center);
 }
 
 .fa-editable-msg{
-    background-color: lighten(#e3e3e3,7);
-    padding: 15px;
+//    @include grid-content(
+//        $size:expand
+//        );
+
+    background: lighten(#e3e3e3,7);
+    background: repeating-linear-gradient(#fff, #fff 29px, #d9eaf3 29px, #d9eaf3 30px, #fff 30px  );
+    max-width: 400px;
+    padding: 6.5px 30px 19px 30px ;
     border: 1px solid darken(#e3e3e3,10);
     margin-bottom: 30px;
     border-radius: $global-radius;
     p{
+        font-family: 'Delius Swash Caps', cursive;
         text-indent: 0;
         text-align: center;
+        line-height: 1.6;
+        padding-bottom: 0.65rem;
+        font-size: 1.2rem;
+        color: darken($info-color, 30);
     }
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.fa-editable-msg:focus{
+    background: repeating-linear-gradient(#fff, #fff 29px, #fa7d85 29px, #fa7d85 30px, #fff 30px  );
+    p{
+        color:darken(#e3e3e3,40);
+    }
+
 }
 
 
@@ -205,15 +363,19 @@ label{
         border: 1px solid darken(#e3e3e3, 10);
         margin-bottom: 30px;
     }
-    
+
 }
 
 .fa-draw-btn{
-    @include button(true, $success-color, darken($success-color, 5), #fff, solid);
+    @extend %button;
+    @include button-style($success-color, darken($success-color, 5), #fff, solid);
+    @include button-size(
+        $expand:true
+        );
 }
 
 .fa-canvass-draw{
-    @include grid-column(12);
+    @include grid-block;
     padding: auto 30px;
 }
 
@@ -221,75 +383,126 @@ label{
     margin-right: 30px;
     margin-left: 30px;
     margin-top: 30px;
+//    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.6);
 }
 
 //---------------------------------------------------Actions bar
 
 .fa-action-bar{
-    @include grid-row;
+    @include grid-block;
     background-color: #fff;
     padding-top: 15px;
-    padding-bottom: 15px;
+//    padding-bottom: 15px;
 }
 
 .fa-edit-btn-area{
-    @include grid-column(5);
+    @include grid-content(
+        $size:5
+    );
 }
 
 .fa-edit-btn{
-    @include button(true,$primary-color,darken($primary-color,5),#fff, hollow);
+    @extend %button;
+    @include button-style(
+        $background:$primary-color,
+        $background-hover:darken($primary-color,5),
+        $color:#fff,
+        $style:hollow
+        );
+    @include button-size(
+        $size:medium,
+        $expand:true
+    );
     @extend .fa-btn-icon;
-    background-image: url(../../images/fa-edit-icon.png);
+    background-image: url(../images/fa-edit-icon.png);
     background-repeat: no-repeat;
 //    background-origin: border-box;
     background-size: 26px;
     background-position: 15px 50%;
-    :hover{
-        background-image: url(../../images/fa-edit-icon-hover.png);
-    }
+}
+
+.fa-edit-btn:hover{
+    background-image: url(../images/fa-edit-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 30px;
+    background-position: 15px 50%;
 }
 
 .fa-like-btn-area{
-    @include grid-column(1);
+    @include grid-content(
+        $size:1
+    );
 }
 
 .fa-post-btn-area{
-    @include grid-column(1);
+    @include grid-content(
+        $size:1
+    );
 }
 
 .fa-share-btn-area{
-    @include grid-column(5);
+    @include grid-content(
+        $size:5
+    );
 }
 
 .fa-share-btn{
-    @include button(true,$primary-color,darken($primary-color,5),#fff, solid);
+    @extend %button;
+    @include button-style($primary-color,darken($primary-color,5),#fff, solid);
+    @include button-size(
+        $size:medium,
+        $expand:true
+    );
     @extend .fa-btn-icon;
-    background-image: url(../../images/fa-friends-icon.png);
+    background-image: url(../images/fa-friends-icon.png);
     background-repeat: no-repeat;
 //    background-origin: border-box;
     background-size: 26px;
+    background-position: 15px 50%;
+}
+
+.fa-share-btn:hover{
+    background-image: url(../images/fa-friends-icon.png);
+    background-repeat: no-repeat;
+//    background-origin: border-box;
+    background-size: 30px;
     background-position: 15px 50%;
 }
 
 //---------------------------------------------------Credits Area
 
 .fa-credit-bar{
-    @include grid-column-row();
-    @include menu-simple;
+    @include grid-block();
+
+//    @include menu-simple;
     color: #eee;
     background-color:#fff;
     border-top:1px solid darken($primary-color,2);
+//    height: 50px;
     ul{
+        @include grid-content(
+            $size:shrink
+            );
         list-style-type:none;
         margin: 0;
         padding-bottom: 8px;
         padding-top: 8px;
+//        height: 30px;
         li{
             display: inline-block;
             a{
                 color: darken($primary-color,5);
                 font-size: 0.9em;
+                margin-right:15px;
             }
         }
+        li a:hover{
+            color: lighten($primary-color,5);
+        }
     }
+}
+
+.fa-hide-img{
+    position:absolute;
 }

@@ -39,7 +39,7 @@ module.exports = function (grunt) {
 
     sass: {
         options: {
-            loadPath: ['bower_components/foundation-sites/scss', 'bower_components/motion-ui'],
+            loadPath: ['bower_components/foundation-apps/scss', 'bower_components/motion-ui'],
 //             loadPath: ['bower_components/foundation-sites/scss']
             compass:true
         },
@@ -67,10 +67,7 @@ module.exports = function (grunt) {
         },
         script: {
             src: [
-                'bower_components/foundation-sites/js/foundation/foundation.js',
-                'bower_components/foundation-sites/js/foundation/foundation.alert.js',
-                'bower_components/foundation-sites/js/foundation/foundation.abide.js',
-                'bower_components/foundation-sites/js/foundation/foundation.toggler.js',
+                'bower_components/foundation-apps/js/angular/foundation.js',
                 // ...more foundation JS you might want to add
                 '<%= yeoman.app %>/develop/js/script.js'
             ],
@@ -90,9 +87,9 @@ module.exports = function (grunt) {
     uglify: {
         dist: {
             files: {
-                'dist/assets/js/jquery.min.js': ['bower_components/jquery/dist/jquery.js'],
+//                'dist/assets/js/jquery.min.js': ['bower_components/jquery/dist/jquery.js'],
 //                'dist/assets/js/modernizr.min.js': ['dist/assets/js/modernizr.js'],
-                'dist/assets/js/script.min.js': ['<%= yeoman.app %>/develop/js/script.js']
+                'dist/assets/js/script.min.js': ['<%= yeoman.app %>/scripts/script.js']
             }
         }
     },
